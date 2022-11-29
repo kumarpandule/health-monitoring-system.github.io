@@ -6,6 +6,7 @@ import { UserContext } from '@lib/context';
 import { auth } from '@lib/firebase';
 import { signOut } from 'firebase/auth';
 import useDarkMode from '@lib/useDarkMode';
+import Image from 'next/image';
 
 
 export default function Navbar() {
@@ -26,8 +27,8 @@ export default function Navbar() {
           <img src="/logo.svg" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
         </a>
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-            <a href="/" className="top-navigation-icon"><FaHome size={34} /></a>
-            <a href="/about" className="top-navigation-icon"><FaExclamationCircle size={34} /></a>
+            <Link href="/" className="top-navigation-icon"><FaHome size={34} /></Link>
+            <Link href="/about" className="top-navigation-icon"><FaExclamationCircle size={34} /></Link>
         </div>
 
         <div className="flex flex-row items-center md:order-2">
@@ -53,7 +54,7 @@ export default function Navbar() {
 
         {/* user is not signed OR has not created username */}
         {!username && (
-            <button class="md:inline-block px-4 py-2 text-xl font-display text-black hover:text-white bg-white hover:bg-purple-600 drop-shadow-[6px_6px_0_black] hover:drop-shadow-[0_0_7px_rgba(168,85,247,0.5)] transition-all duration-300"><a href='/login'>Login</a></button>
+            <button class="md:inline-block px-4 py-2 text-xl font-display text-black hover:text-white bg-white hover:bg-purple-600 drop-shadow-[6px_6px_0_black] hover:drop-shadow-[0_0_7px_rgba(168,85,247,0.5)] transition-all duration-300"><Link href='/login'>Login</Link></button>
         )}
 
         </div>

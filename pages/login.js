@@ -3,6 +3,7 @@ import { doc, writeBatch, getDoc, getFirestore } from 'firebase/firestore';
 import { signInWithPopup, signInAnonymously, signOut } from 'firebase/auth';
 import { UserContext } from '@lib/context';
 import { useEffect, useState, useCallback, useContext } from 'react';
+import Link from 'next/link';
 
 
 
@@ -91,7 +92,7 @@ export default function LoginPage(props) {
             You already sign in in this system.
           </p>
           <h2 class="text-lg mb-1">Go to Dashboard</h2>
-          <a href="/admin" className="btn btn-green btn-glow">Your Dashboard!</a>
+          <Link href="/admin" className="btn btn-green btn-glow">Your Dashboard!</Link>
           <a className=' px-6'>Or</a>
           <button className='btn btn-red' onClick={() => signOut(auth)}>Sign Out</button>
         </header>
