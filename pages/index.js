@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function Home() {
   return (
   <main className=" h-screen bg-gray-100 dark:bg-gray-900">
@@ -8,7 +10,7 @@ export default function Home() {
         <h1>Health Monitoring <span className='gradient-text'>System</span></h1>
         <p className='padding-horizontal-2'>This system is a <span className='text-yellow-500 font-bold'>remote</span> platform to <span className='text-pink-500 font-bold'>monitor</span> health anytime and anywhere.</p>
         </article>
-        <a href="/login" className="btn btn-green btn-glow">Login here!</a>
+        <Link href="/login" className="btn btn-green btn-glow">Login here!</Link>
        </div>
        </div>
        <div className='basis-1/2 w-auto'>

@@ -23,9 +23,9 @@ export default function Navbar() {
   return (
     <nav className="flex justify-between items-center p-4 bg-gray-200 dark:bg-gray-800 z-10">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="./" className="flex items-center">
+        <Link href="./" className="flex items-center">
           <img src="/logo.svg" className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-        </a>
+        </Link>
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
             <Link href="/" className="top-navigation-icon"><FaHome size={34} /></Link>
             <Link href="/about" className="top-navigation-icon"><FaExclamationCircle size={34} /></Link>
