@@ -6,7 +6,12 @@
 @tailwind base;
 @tailwind components;
 
-*,
+*{
+  font-family: 'cubano', sans-serif;
+  font-weight: normal;
+  letter-spacing: normal;
+  font-style: normal;
+}
 *::before,
 *::after {
   box-sizing: border-box;
@@ -14,12 +19,54 @@
   padding: 0;
 }
 
+
+h1 { font-size: 3rem; 
+     font-family: 'cubano', sans-serif;
+}
+h2 { font-size: 2.5rem;
+  font-family: 'sofia-pro', sans-serif;
+  font-weight: 800;
+ }
+
+h3 { font-size: 1.25rem; 
+  font-family: 'sofia-pro', sans-serif;
+  font-weight: 700;
+}
+
+input{
+  font-size: 1rem;
+  font-family: 'sofia-pro', sans-serif;
+  font-weight: 600;
+}
+
+textarea{
+  font-size: 1rem;
+  font-family: 'sofia-pro', sans-serif;
+  font-weight: 600;
+}
+
+a{
+  font-size: 1rem;
+  font-family: 'sofia-pro', sans-serif;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  font-family: 'sofia-pro', sans-serif;
+  font-weight: 600;
+}
+
+p, article, section {
+  line-height: 1.5;
+}
+
 @layer components {
 
   .sidebar-icon {
     @apply relative flex items-center justify-center 
     h-12 w-12 mt-2 mb-2 mx-auto  
-  bg-blue-100 hover:bg-blue-500 dark:bg-gray-700 
+   hover:bg-blue-500 bg-blue-100 dark:bg-gray-700 
   text-blue-500 hover:text-white hover:dark:bg-blue-500
     hover:rounded-3xl rounded-xl 
     transition-all duration-300 ease-linear
@@ -36,7 +83,7 @@
   .sidebar-hr {
     @apply bg-gray-200 dark:bg-gray-800 
     border border-blue-400 dark:border-blue-400 rounded-full
-    mx-12;
+    md:mx-12;
   }
 
   .top-navigation {
@@ -48,15 +95,19 @@
   }
 
   .top-navigation-icon {
-    @apply text-gray-500
+    @apply text-gray-500 dark:text-gray-200
     mr-3 ml-4
     transition duration-300 ease-in-out 
-    hover:text-blue-500 
+    hover:text-blue-500 dark:hover:text-blue-500
     cursor-pointer;
   }
 
   .top-navigation-icon:first {
     @apply ml-auto mr-4;
+  }
+  
+  .input-field{
+    @apply outline-none duration-300 border-b-4 border-solid border-gray-500 focus:border-green-500 placeholder:text-gray4 bg-gray-300 dark:bg-gray-700 text-gray6 dark:text-gray-300 p-2 w-full;
   }
 
   .title-hashtag {

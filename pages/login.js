@@ -1,108 +1,135 @@
-import { auth, firestore, googleAuthProvider } from '@lib/firebase';
-import { doc, writeBatch, getDoc, getFirestore } from 'firebase/firestore';
-import { signInWithPopup, signInAnonymously, signOut } from 'firebase/auth';
-import { UserContext } from '@lib/context';
-import { useEffect, useState, useCallback, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react'
+import { FaSpinner } from 'react-icons/fa';
 import Link from 'next/link';
+import Router, { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { auth } from '@lib/firebase';
+import { UserContext } from '@lib/context';
 
 
-
-export default function LoginPage(props) {
-  const { user, username } = useContext(UserContext);
-
-  return (
-    <main>
-      {/* <Metatags title="Enter" description="Sign up for this amazing app!" /> */}
-      {user ? !username ? <UsernameForm /> : <SignOut user={user}/> : <SignIn />}
-    </main>
-  );
-}
-
-  //   Sign In
-  function SignIn() {
-    const signInWithGoogle = async () => {
-      await signInWithPopup(auth, googleAuthProvider)
-    };
+export default function Login(props) {
+    const { user, currentUser} = useContext(UserContext);
 
     return (
       <>
-      <div class="flex flex-col h-screen justify-center items-center md:flex-row bg-gray-100 dark:bg-gray-900">
-        <div class="flex basis-1/2 justify-center">
-          <img className=' w-1/2' src="/Authentication.svg"></img>
-        </div>
-
-        <div class="flex justify-center md:justify-start md:ml-16 basis-1/2">
-          <form class="flex flex-col justify-center md:justify-start w-3/4 md:w-1/2">
-            <div className="flex justify-center pb-6">
-              <img src="/hacker.png" class="w-1/5 object-center"></img>
-            </div>
-            <div className=" prose lg:prose-lg">
-              <div className="flex justify-center">
-                <h1>Welcome</h1>
-              </div>
-
-              {/* Login  creadientals */}
-              
-              <h5>Username</h5>
-              <input
-                class="bg-gray7 bg-opacity-30 text-white text-lg block py-2 px-1 w-full border-b-4 border-b-white border-t-0 border-r-0 border-l-0 rounded-none outline-none focus-visible:outline-none"
-                type="email" name="email">
-                </input>
-
-              <h5>Password</h5>
-              <input
-                type="password"
-                class="bg-gray7 bg-opacity-30 text-white text-lg block py-2 px-1 w-full border-b-4 border-b-white border-t-0 border-r-0 border-l-0 rounded-none outline-none focus-visible:outline-none">
-                </input>
-
-              <a href="#" class="py-2">
-                Forgot Password?
-              </a>
-              <div>
-              <input
-                type="submit"
-                class="btn btn-blue btn-glow" value="Login">
-                </input>
-                </div>
-
-              <h5>Or with account:</h5>
-              <a className="btn flex flex-row justify-center text-center items-center h-12" onClick={signInWithGoogle}><img src="/google.png" className="w-8 mr-4"></img>
-              Sign in with Google 
-              </a>
-            </div>
-          </form>
-        </div>
-      </div>
-    </>
+      { user ? <SignOut /> : <SignIn /> }
+      </>
     );
   }
 
 
 
-  // Sign out
-  function SignOut({user}) {
-    // return <button onClick={() => signOut(auth)}>Sign Out</button>;
+
+  function SignIn() {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
+    const { user, currentUser} = useContext(UserContext);
+    function clearValues(){
+      setEmail('')
+      setPassword('')
+      return
+    }
+
+    const onChange = (e) => {
+      setIsLoading(false)
+    }
+
+   async function submitHandler() {
+        if (!email || !password) {
+            setError('Please enter email and password')
+            setIsLoading(false)
+            return
+        }
+       setIsLoading(true)
+       await signInWithEmailAndPassword(auth, email, password)
+        .then()
+        .catch((error) => {
+          setError(error.message)
+          clearValues()
+          setIsLoading(false)
+          toast.error(error.message)
+        }).finally(() => user ? Router.push('/admin') : setIsLoading(false))
+    }
 
     return (
-      <main className=" h-screen bg-gray-100 dark:bg-gray-900">
-        <div className='container prose dark:prose-invert '>
-        <header class="text-center mb-8 pt-20">
-          <h1 class="text-5xl mb-1">Welcome <span className='gradient-text'>User</span></h1>
-          <p class="my-0 text-gray3">
-            You already sign in in this system.
-          </p>
-          <h2 class="text-lg mb-1">Go to Dashboard</h2>
-          <Link href="/admin" className="btn btn-green btn-glow">Your Dashboard!</Link>
-          <a className=' px-6'>Or</a>
-          <button className='btn btn-red' onClick={() => signOut(auth)}>Sign Out</button>
-        </header>
+      <div className="flex flex-col h-screen justify-center items-center md:flex-row bg-gray-100 dark:bg-gray-900">
+      <div className="flex basis-1/2 justify-center">
+        <img className=" md:w-1/2 w-4/5" src="/Authentication.svg"></img>
+      </div>
+      <div className="flex justify-center md:justify-start md:ml-16 basis-1/2">
+        <div className="flex w-full md:w-1/2 flex-col justify-between items-center">
+          <h1 className=" py-6 font-extrabold text-gray6 dark:text-gray2 select-none text-2xl sm:text-4xl uppercase">
+            Login
+          </h1>
+
+          {/* Error Messege */}
+          {error && (
+            <div className=" text-sm w-4/5 border-red-500 border text-center border-solid text-red-500 py-2">
+              {error}
+            </div>
+          )}
+          <div className="py-4"></div>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => {
+              onChange()
+              setEmail(e.target.value)}}
+            placeholder="Email Address"
+            className="input-field"
+          />
+          <div className="py-4"></div>
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="Password"
+            className="input-field"
+          />
+          <div className="py-4"></div>
+          <button
+            onClick={submitHandler}
+            className="w-full flex justify-center py-2 duration-300 relative after:absolute after:top-0 after:right-full bg-green-500 after:z-10 after:w-full after:h-full overflow-hidden hover:after:translate-x-full after:duration-300 hover:text-slate-900">
+                  {(isLoading) && (
+                      <FaSpinner className=' animate-spin text-white' size={22}/>
+
+                  )} 
+                  {(!isLoading) && (
+                    <span className="text-gray1 cursor-pointer">Login</span>
+                  )}
+          </button>
+          <div className="py-6"></div>
         </div>
-      </main>
+      </div>
+    </div>
     );
   }
 
 
-  //   Username Form
-  function UsernameForm(){
-    return null;
+  function SignOut(){
+    const router = useRouter();
+    const SignOutNow = () => {
+      signOut(auth);
+      router.reload();
+    }
+
+    return(
+        <div className=" h-screen bg-gray-100 dark:bg-gray-900">
+        <div className='container prose dark:prose-invert '>
+        <header className="text-center mb-8 pt-20">
+          <h1 className="text-5xl mb-1">Welcome <span className='gradient-text'>Admin</span></h1>
+          <p className="my-0 text-gray5">
+            You already sign in in this system.
+          </p>
+          <h2 className="text-lg mb-1">Go to Dashboard</h2>
+          <Link href="/admin" className="btn btn-green btn-glow">Your Dashboard!</Link>
+          <a className=' px-6'>Or</a>
+          <button className='btn btn-red' onClick={SignOutNow}>Sign Out</button>
+        </header>
+        </div>
+      </div>
+    );
   }

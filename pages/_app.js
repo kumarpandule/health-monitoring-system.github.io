@@ -1,18 +1,17 @@
-import Navbar from '@components/Navbar'
 import '@styles/app.scss'
 import { UserContext } from '@lib/context';
-import { useUserData } from '@lib/hooks';
-import { Toaster } from 'react-hot-toast';
+import Layout from './layout';
+import { useUserData } from '@lib/userInfo';
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData();
+
   return (
-  
   <UserContext.Provider value={userData}>
-  <Navbar />
+  <Layout>
   <Component {...pageProps} />
-  <Toaster />
-  </UserContext.Provider>
+  </Layout>
+  </UserContext.Provider> 
   );
 }
 
