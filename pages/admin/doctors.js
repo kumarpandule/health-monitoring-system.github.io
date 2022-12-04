@@ -1,6 +1,6 @@
 import AuthCheck from "@components/AuthCheck";
 import AdminSidebar from "@components/AdminSidebar";
-import fetchDoctors from "@lib/fetchDoctors";
+import FetchDoctors from "@lib/FetchDoctors";
 import AddDoctor from "@lib/addDoctor";
 import DoctorCard from "@components/DoctorCard";
 import { FaSpinner } from 'react-icons/fa';
@@ -8,7 +8,7 @@ import { UserContext } from "@lib/context";
 import { useContext } from "react";
 
 export default function Doctors(props) {
-  const {error, doctors, loading} = fetchDoctors()
+  const {error, doctors, loading} = FetchDoctors()
   const {user, currentUser} = useContext(UserContext)
 
   return (
