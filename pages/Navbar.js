@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <nav className="flex top-0 left-0 w-full md:px-24 px-6 py-2 justify-between items-center shadow-lg bg-gray-200 dark:bg-gray-800">
         <Link href="./" className="flex items-center">
-          <img src="/logo.svg" className="h-9 mr-3"/>
+          <img src="/logo.png" className="h-9 mr-3"/>
         </Link>
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
             <Link href="/" className="top-navigation-icon"><FaHome size={34} /></Link>
