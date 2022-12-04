@@ -1,6 +1,6 @@
 import AuthCheck from "@components/AuthCheck";
 import AdminSidebar from "@components/AdminSidebar";
-import FetchDoctors from "@lib/FetchDoctors";
+import FetchDoctors from "@lib/fetchDoctors";
 import AddDoctor from "@lib/addDoctor";
 import DoctorCard from "@components/DoctorCard";
 import { FaSpinner } from 'react-icons/fa';
