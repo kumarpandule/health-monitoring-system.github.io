@@ -1,16 +1,20 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useDarkMode from '@lib/useDarkMode';
-import React, { useContext } from 'react';
-import { FaHome, FaExclamationCircle, FaSignOutAlt,FaSun, FaMoon } from 'react-icons/fa';
+import React, { useContext, useState } from 'react';
+import { FaHome, FaExclamationCircle, FaSignOutAlt,FaSun, FaMoon, FaList } from 'react-icons/fa';
 import { UserContext } from '@lib/context';
 import { signOut } from 'firebase/auth';
 import { auth } from '@lib/firebase';
 
 
-export default function Navbar() {
+export default function Navbar(props) {
   const router = useRouter();
   const {user, currentUser} = useContext(UserContext);
+
+  function OpenSidebar(){
+     setOpenSidebar(false)
+  }
 
   const SignOutNow = () => {
     signOut(auth);
@@ -19,13 +23,15 @@ export default function Navbar() {
 
 
   return (
-    <nav className="flex top-0 left-0 w-full md:px-24 px-6 py-2 justify-between items-center shadow-lg bg-gray-200 dark:bg-gray-800">
+    <nav className="flex top-0 left-0 w-full md:px-24 px-4 py-2 justify-between items-center shadow-lg bg-gray-200 dark:bg-gray-800">
+         <div className='flex flex-row items-center'>
         <Link href="./" className="flex items-center">
-          <img src="/logo.png" className="h-9 mr-3"/>
+          <img src="/logo.png" className="h-6 md:h-9 mr-3"/>
         </Link>
+        </div>
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-            <Link href="/" className="top-navigation-icon"><FaHome size={34} /></Link>
-            <Link href="/about" className="top-navigation-icon"><FaExclamationCircle size={34} /></Link>
+            <Link href="/" className="top-navigation-icon"><FaHome size={32}/></Link>
+            <Link href="/about" className="top-navigation-icon"><FaExclamationCircle size={32} /></Link>
         </div>
 
         <div className="flex flex-row items-center md:order-2">
@@ -36,7 +42,7 @@ export default function Navbar() {
           <>
               <button className=' top-navigation-icon' onClick={SignOutNow} ><FaSignOutAlt size={30}/></button>
               <Link href={`/admin`}>
-                <img src='/hacker.png' className="w-10 h-10 rounded-full" />
+                <img src='/hacker.png' className=" w-8 h-8 md:w-10 md:h-10 rounded-full ring-2 p-1 ring-green-600" alt="Bordered avatar"/>
               </Link>
           </>
         )}
@@ -44,7 +50,7 @@ export default function Navbar() {
         {/* user is not signed OR has not created username */}
         {!user && (
           <Link href='/login'>
-            <button className="md:inline-block px-4 py-2 text-xl font-display text-black hover:text-white bg-white hover:bg-purple-600 drop-shadow-[6px_6px_0_black] hover:drop-shadow-[0_0_7px_rgba(168,85,247,0.5)] transition-all duration-300">Login</button>
+            <button className="md:inline-block px-4 py-2 text-sm md:text-xl font-display text-black hover:text-white bg-white hover:bg-purple-600 drop-shadow-[6px_6px_0_black] hover:drop-shadow-[0_0_7px_rgba(168,85,247,0.5)] transition-all duration-300">Login</button>
             </Link>
         )}
 

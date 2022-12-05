@@ -8,7 +8,7 @@ export default function Home() {
         <title>Health Monitoring System</title>
       </Head>
       <main className=" h-screen bg-gray-100 dark:bg-gray-900">
-        <div className="flex flex-col md:flex-row pt-28">
+        <div className="flex flex-col md:flex-row  md:pt-24">
           <div className="basis-1/2">
             <div className="flex flex-col justify-center items-center h-3/4 my-16">
               <article className="flex flex-col prose lg:prose-xl dark:prose-invert text-center w-2/3">
@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           <div className="basis-1/2 w-auto">
             <div className=" flex items-center justify-center">
-              <img src="/dashboard.svg" className=" object-center w-1/2"></img>
+              <img src="/dashboard.svg" className=" object-center sm:w-1/2 w-3/4"></img>
             </div>
           </div>
         </div>

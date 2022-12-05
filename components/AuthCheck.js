@@ -13,10 +13,10 @@ export default function AuthCheck(props) {
 function YouMustSignIn(){
   return (
     <main className=" h-screen bg-gray-100 dark:bg-gray-900">
-    <div className='container prose dark:prose-invert '>
+    <div className='container prose dark:prose-invert md:prose-lg lg:prose-lg sm:prose-sm'>
     <header className="text-center mb-8 pt-20">
-      <h1 className="text-5xl mb-1">You need to Sign In First!</h1>
-      <h2 className="text-lg mb-1">Go to Login page</h2>
+      <h1 >You need to Sign In First!</h1>
+      <h2 >Go to Login page</h2>
       <Link className='btn btn-green' href="/login">You must be signed in</Link>
     </header>
     </div>

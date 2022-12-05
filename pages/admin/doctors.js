@@ -16,10 +16,10 @@ export default function Doctors(props) {
       <AdminSidebar>
         {/* Add Doctor */}
         <div>
-          <h1 className="prose lg:prose-xl font-bold ml-4 py-2 dark:text-gray1">
+          <h1 className="prose lg:prose-xl font-bold md:ml-4 py-2 dark:text-gray1">
             Add Doctor
           </h1>
-          <div className="mx-4">
+          <div className="md:mx-4">
 
            <AddDoctor />
 
@@ -28,12 +28,12 @@ export default function Doctors(props) {
 
         {/* Doctors List */}
         <div>
-          <h1 className="prose lg:prose-xl font-bold ml-4 py-2 dark:text-gray1">
+          <h1 className="prose lg:prose-xl font-bold md:ml-4 py-2 dark:text-gray1">
             All Doctors
           </h1>
-          <div className="mx-4">
+          <div className="md:mx-4">
             <div className="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800">
-              <div className="w-full overflow-x-auto p-4">
+              <div className="w-full overflow-x-auto p-2 md:p-4">
 
                 <table className="w-full">
                   <thead>

@@ -8,6 +8,14 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    screens: {
+      'xs': '390px',
+      'sm': '512px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     fontFamily: {
       sans: ['sofia-pro', 'sans-serif'],
       display: ['cubano', 'sans-serif'],
@@ -55,23 +63,23 @@ module.exports = {
           scss: {
             h1: {
               'font-weight': 'normal',
-              'font-size': '2.5rem',
+              'font-size': '2rem',
             },
             h2: {
               'font-weight': 'normal',
-              'font-size': '2rem',
+              'font-size': '1.75rem',
             },
             h3: {
               'font-weight': 'normal',
-              'font-size': '1.75rem',
+              'font-size': '1.50rem',
             },
             h4: {
               'font-weight': 'normal',
-              'font-size': '1.5rem',
+              'font-size': '1.25rem',
             },
             h5: {
               'font-weight': 'normal',
-              'font-size': '1.25rem',
+              'font-size': '1rem',
             }
           },
         },

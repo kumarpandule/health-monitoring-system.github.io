@@ -7,57 +7,24 @@ export default function Dashboard(props) {
   return (
     <AuthCheck>
       <AdminSidebar>
-        <h1 className="prose lg:prose-xl font-bold ml-4 dark:text-gray1">Dashboard</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4 ">
+        <h1 className="prose lg:prose-xl font-bold md:ml-4 dark:text-gray1">Dashboard</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 py-4 md:px-4 gap-4 ">
           <div className="bg-white dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-500 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium group">
-            <div className="flex justify-center items-center w-14 h-14 bg-gray-100 rounded-full transition-all duration-300 transform group-hover:rotate-12">
-              <svg
-                width="30"
-                height="30"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="stroke-current text-blue-500 dark:text-gray-800 transform transition-transform duration-500 ease-in-out"
-              >
-                <FaUsers size={26} />
-              </svg>
-            </div>
+                <FaUsers className='text-blue-500 dark:text-gray-100' size={36} />
             <div className="text-right">
               <p className="text-2xl">01</p>
               <p>Total Patients</p>
             </div>
           </div>
           <div className="bg-white dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-500 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium group">
-            <div className="flex justify-center items-center w-14 h-14 bg-gray-100 rounded-full transition-all duration-300 transform group-hover:rotate-12">
-              <svg
-                width="30"
-                height="30"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="stroke-current text-blue-500 dark:text-gray-800 transform transition-transform duration-500 ease-in-out"
-              >
-                <FaFileAlt size={26} />
-              </svg>
-            </div>
+                <FaFileAlt className='stroke-current text-blue-500 dark:text-gray-100 ' size={36} />
             <div className="text-right">
               <p className="text-2xl">02</p>
               <p>Total Reports</p>
             </div>
           </div>
           <div className="bg-white dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-500 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium group">
-            <div className="flex justify-center items-center w-14 h-14 bg-gray-100 rounded-full transition-all duration-300 transform group-hover:rotate-12">
-              <svg
-                width="30"
-                height="30"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="stroke-current text-blue-500 dark:text-gray-800 transform transition-transform duration-500 ease-in-out"
-              >
-                <FaBell size={26} />
-              </svg>
-            </div>
+                <FaBell className='stroke-current text-blue-500 dark:text-gray-100' size={36} />
             <div className="text-right">
               <p className="text-2xl">00</p>
               <p>Appointments</p>
@@ -107,10 +74,10 @@ export default function Dashboard(props) {
                 </div>
               </div> */}
 
-        <h1 className="prose lg:prose-xl font-bold ml-4 dark:text-gray1">All Clients</h1>
-        <div className="mt-4 mx-4">
+        <h1 className="prose lg:prose-xl font-bold md:ml-4 dark:text-gray1">All Clients</h1>
+        <div className="mt-4 md:px-4">
           <div className="w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800">
-            <div className="w-full overflow-x-auto p-4">
+            <div className="w-full overflow-x-auto py-4 md:px-4">
               <table className="w-full">
                 <thead>
                   <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
