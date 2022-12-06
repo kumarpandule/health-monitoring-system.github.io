@@ -2,6 +2,7 @@ import Head from "next/head"
 import { useEffect } from "react";
 import Footer from "./footer";
 
+
 export default function Home() {
 
   useEffect(() => {
@@ -9,13 +10,13 @@ export default function Home() {
       entries.forEach((entry) => {
         console.log(entry)
         if(entry.isIntersecting){
-          entry.target.classList.add('show')
+          entry.target.classList.add("show")
         }else{
-          entry.target.classList.remove('show')
+          entry.target.classList.remove("show")
         }
       });
 })
-const hiddenElements = document.querySelectorAll('.animation');
+const hiddenElements = document.querySelectorAll(".animation");
 hiddenElements.forEach((el) => observer.observe(el));
   },[])
 
@@ -56,7 +57,7 @@ hiddenElements.forEach((el) => observer.observe(el));
           <div class="text-center mt-16 snap-proximity">
               <a href="" class="no-underline">
                 <h2 class="animation bg-red-500 inline-block text-gray1 px-6 py-4 text-base md:text-4xl shadow-xl">
-                  Today's Healthcare  
+                  {"Today's "}Healthcare  
                 </h2>
                 <span class="animate-bounce text-5xl block mt-12 mb-6">👇</span>
               </a>
@@ -73,7 +74,7 @@ hiddenElements.forEach((el) => observer.observe(el));
               Getting the real time health <span class="text-green-600 font-display animate-pulse"> parameters </span>
               at no time ensures treatment as quick as possible.</p>
             <p className=" animation py-2 text-lg md:text-2xl text-gray5 dark:text-gray3 w-3/4 mx-auto">
-              It's not posible to get<span class="text-blue-500 font-display animate-pulse"> patients history. </span>for further handling of treatment as soon as possible.</p>
+              {"It's "}not posible to get<span class="text-blue-500 font-display animate-pulse"> patients history. </span>for further handling of treatment as soon as possible.</p>
             <span className=" animation">
               <a class="animate-bounce no-underline block mt-12 md:text-xl text-base" href="">
                 how can get? 🤔

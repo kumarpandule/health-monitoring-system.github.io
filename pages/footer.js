@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 import { FaGithubAlt } from 'react-icons/fa';
 
@@ -20,8 +21,10 @@ export default function Footer() {
       </div>
       <h6>Helpful Links</h6>
       <div class="py-3">
-        <a href="/about">Courses</a> |<a href="/contributors"> Contrib</a> |
-        <a href="/privacy"> Privacy</a> |<a href="/terms"> Terms</a>
+        <Link href="/about"><span>About</span> |</Link>
+        <Link href="#"><span> Contrib</span> |</Link>
+        <Link href="#"><span> Privacy</span> |</Link>
+        <Link href="#"><span> Terms</span></Link>
       </div>
       <div class="text-xs">
         Copyright © 2022 Health Monitoring System LLC <br />
