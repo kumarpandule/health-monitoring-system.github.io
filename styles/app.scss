@@ -53,14 +53,24 @@ a{
 
 p {
   font-family: 'sofia-pro', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 p, article, section {
   line-height: 1.5;
+  font-family: 'sofia-pro', sans-serif;
+  font-weight: 500;
 }
 
 @layer components {
+
+  .animation{
+    @apply opacity-0 transform transition ease-in-out duration-1000 -translate-x-24
+  }
+
+  .show{
+    @apply opacity-100 -translate-x-0
+  }
 
   .sidebar-icon {
     @apply relative flex items-center justify-center 
@@ -283,7 +293,7 @@ p, article, section {
 }
 
  .container {
-    @apply max-w-screen-2xl mx-auto md:px-16;
+    @apply max-w-screen-2xl mx-auto md:px-12;
  }
 
 

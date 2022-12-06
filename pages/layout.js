@@ -1,7 +1,6 @@
 import React from "react";
 import { Toaster } from "react-hot-toast";
-import Footer from "./footer";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 
 export default function Layout(props) {
     const {children} = props;
@@ -12,7 +11,6 @@ export default function Layout(props) {
       {children}
      </main>
      <Toaster />
-     {/* <Footer /> */}
     </div>
   );
 }
