@@ -5,7 +5,7 @@ import { FaGithubAlt } from 'react-icons/fa';
 export default function Footer() {
   return (
     <footer class="container text-center my-6 p-8 text-gray5 dark:text-gray3">
-      <div class="mx-auto w-24 h-1 my-12 bg-gradient-to-r from-gray5 to-gray4 rounded-full"></div>
+      <div class="mx-auto w-24 h-1 my-4 bg-gradient-to-r from-gray5 to-gray4 rounded-full"></div>
       <div class="py-3">
         Need help? Email{" "}
         <a href="kumarpandule20@gmail.com">

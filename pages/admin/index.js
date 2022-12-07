@@ -18,12 +18,12 @@ export default function Admin(props) {
   return (
     <AuthCheck>
       <AdminSidebar>
-        <div className=" container text-center flex prose dark:prose-invert md:prose-lg lg:prose-lg sm:prose-sm flex-col w-full">
-            <h2 className=" font-bold">Welcome Doctor</h2>
+        <div className=" container text-center flex flex-col w-full">
+            <h1 className=" font-bold md:text-4xl text-2xl text-gray6 dark:text-gray-100">Welcome Doctor</h1>
             <div className="mx-auto w-24 h-1 my-4 bg-gradient-to-r from-green-600 to-green-400 rounded-full"></div>
 
           <div className="mt-4">
-          <div className="w-full px-4 overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800">
+          <div className="w-full md:w-3/4 px-4 md:mx-auto overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800">
           <div className="flex flex-col md:flex-row">
 
           <div className="basis-1/2">
@@ -38,7 +38,7 @@ export default function Admin(props) {
               <FaSpinner className=' my-40 animate-spin text-blue-500' size={40}/>
             )}
             {(!isUserLoading) && (
-          <article className="flex flex-col w-auto text-start">
+          <article className="flex flex-col w-auto text-start text-base md:text-lg text-gray6 dark:text-gray-100 gap-4 p-4">
               <p>
               User ID:{" "}
               <span>{currentUser?.uid}</span>

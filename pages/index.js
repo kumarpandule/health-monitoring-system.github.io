@@ -99,6 +99,21 @@ hiddenElements.forEach((el) => observer.observe(el));
           </section>
         </div>
         
+        <div className="h-screen w-screen flex flex-col justify-center bg-gray-100 dark:bg-gray-900">
+          <section class=" animation container md:w-1/2 text-center place-content-center prose dark:prose-invert md:prose-lg lg:prose-lg sm:prose-sm">
+            <h1 class=" animation bg-gradient-to-r from-blue-600 to-blue-300 inline-block px-6 py-3 text-lg md:text-2xl shadow-lg mb-12">
+              Our Kit
+            </h1>
+            <p class=" animation py-2 text-lg md:text-2xl text-gray5 dark:text-gray3 text-center w-3/4 mx-auto">
+            --------------------------------------------------------
+              <span class="text-blue-600 font-display animate-pulse"> -------- </span>------------------------------</p>
+            <p className=" animation py-2 text-lg md:text-2xl text-gray5 dark:text-gray3 w-3/4 mx-auto">
+            -----------------------------------<span class="text-blue-500 font-display animate-pulse"> -------------------------- </span>----------------------------------------</p>
+            <a class="animate-bounce no-underline block mt-12 md:text-xl text-base" href="">
+              How you get monitored? 🧐
+            </a>
+          </section>
+        </div>
         {/* Footer Section */}
         <Footer />
       </main>
