@@ -32,7 +32,7 @@ hiddenElements.forEach((el) => observer.observe(el));
               <div className="flex flex-col justify-center items-center h-3/4 my-16">
                 <article className="flex flex-col prose lg:prose-xl dark:prose-invert text-center w-4/5">
                   <h1>
-                    Health Monitoring{" "}
+                    Patient Monitoring{" "}
                     <span className="gradient-text">System</span>
                   </h1>
                   <p className="padding-horizontal-2">
