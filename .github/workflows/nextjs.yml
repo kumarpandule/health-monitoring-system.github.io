@@ -3,7 +3,7 @@ name: Deploy Health Monitoring site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ["testing"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -20,6 +20,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Testing clone
+  lintTest:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Clone Repostitory
+        uses: actions/checkout@V2
+      
+  # Security check
+  SecurityCheck:
+    name: Security Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check For Security
+        run: |
+          echo "Running Security Checks..."
+          sleep 5s;
+          echo "Running Security Checks 1"
+          sleep 5s;
+          echo "Running Security Checks 2"
+          sleep 5s;
+           echo "Running Security Checks 2"
+          sleep 5s; 
+  
   # Build job
   build:
     runs-on: ubuntu-latest
