@@ -55,31 +55,28 @@ module.exports = {
           100: '#f2f3f5',
         },
       },
-      spacing: {
-        88: '22rem',
-      },
       typography: {
         DEFAULT: {
           scss: {
             h1: {
               'font-weight': 'normal',
-              'font-size': '2rem',
+              'font-size': '1.75rem',
             },
             h2: {
               'font-weight': 'normal',
-              'font-size': '1.75rem',
+              'font-size': '1.50rem',
             },
             h3: {
               'font-weight': 'normal',
-              'font-size': '1.50rem',
+              'font-size': '1.25rem',
             },
             h4: {
               'font-weight': 'normal',
-              'font-size': '1.25rem',
+              'font-size': '1rem',
             },
             h5: {
               'font-weight': 'normal',
-              'font-size': '1rem',
+              'font-size': '0.75rem',
             }
           },
         },

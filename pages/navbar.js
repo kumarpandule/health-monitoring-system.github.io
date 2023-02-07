@@ -1,26 +1,20 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useDarkMode from '@lib/useDarkMode';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FaHome, FaExclamationCircle, FaSignOutAlt,FaSun, FaMoon, FaList } from 'react-icons/fa';
 import { UserContext } from '@lib/context';
-import { signOut } from 'firebase/auth';
 import { auth } from '@lib/firebase';
 
 
 export default function Navbar(props) {
   const router = useRouter();
-  const {user, currentUser} = useContext(UserContext);
+  const { user , currentUser} = useContext(UserContext);
 
-  function OpenSidebar(){
-     setOpenSidebar(false)
+  const logout = () => {
+    auth.signOut();
+    router.push('/login')
   }
-
-  const SignOutNow = () => {
-    signOut(auth);
-    router.reload();
-  } 
-
 
   return (
     <nav className="flex top-0 left-0 w-full md:px-24 px-4 py-2 justify-between items-center shadow-lg bg-gray-200 dark:bg-gray-800">
@@ -40,9 +34,9 @@ export default function Navbar(props) {
           {/* user is signed-in and has username */}
         {user && (
           <>
-              <button className=' top-navigation-icon' onClick={SignOutNow} ><FaSignOutAlt size={30}/></button>
-              <Link href={`/admin`}>
-                <img src='/hacker.png' className=" w-8 h-8 md:w-10 md:h-10 rounded-full ring-2 p-1 ring-green-600" alt="Bordered avatar"/>
+              <button className=' top-navigation-icon' onClick={logout} ><FaSignOutAlt size={30}/></button>
+              <Link href={`/login`}>
+                <img src={currentUser?.img || '/hacker.png'} className=" w-8 h-8 md:w-10 md:h-10 rounded-full ring-2 p-0.5 ring-green-600" alt="Bordered avatar"/>
               </Link>
           </>
         )}
@@ -60,15 +54,16 @@ export default function Navbar(props) {
 }
 
 const ThemeIcon = () => {
-  const [darkTheme, setDarkTheme] = useDarkMode();
-  const handleMode = () => setDarkTheme(!darkTheme);
+  const [colorTheme, setTheme] = useDarkMode();
   return (
-    <div onClick={handleMode}>
-      {!darkTheme ? 
-        <FaMoon size='28' className='top-navigation-icon' />
+    <div>
+      {colorTheme === "light" ? (
+        <FaSun onClick={() => setTheme("light")} color='orange' size='28' className='top-navigation-icon' />
+      )
        : 
-        <FaSun size='28' className='top-navigation-icon' />
-      }
+      (
+        <FaMoon onClick={() => setTheme("dark")} size='28' className='top-navigation-icon' />
+      )}
     </div>
   );
 };

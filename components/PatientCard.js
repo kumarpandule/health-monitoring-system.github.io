@@ -1,8 +1,7 @@
 import React from 'react'
 import { FaUser, FaAngleRight} from 'react-icons/fa';
 
-export default function DoctorCard({name, speciality, email, uid, userType}) {
-
+function PatientCard({name, number, city, uid, aadhar}) {
   return (
     <>
       <td className="px-2 py-3">
@@ -13,16 +12,16 @@ export default function DoctorCard({name, speciality, email, uid, userType}) {
           <div>
             <p className="font-semibold">{name}</p>
             <p className="text-xs text-gray-600 dark:text-gray-400">
-              {speciality}
+              {number}
             </p>
           </div>
         </div>
       </td>
-      <td><p className={` ${userType === 'Admin' ? 'text-green-500' : 'text-blue-500'}`}>{userType}</p></td>
+      <td><p className='font-semibold'>{city}</p></td>
       <td className="px-4 py-3 text-sm">{uid}</td>
       <td className="px-4 py-3 text-xs">
         <span className="px-2 py-1 font-semibold leading-tight rounded-full text-gray-600 dark:text-gray-400">
-          {email}
+          {aadhar}
         </span>
       </td>
       <td className="pl-4">View</td>
@@ -30,5 +29,7 @@ export default function DoctorCard({name, speciality, email, uid, userType}) {
       <FaAngleRight size={22}/>
       </td>
       </>
-  );
+  )
 }
+
+export default PatientCard

@@ -64,6 +64,10 @@ p, article, section {
 
 @layer components {
 
+  label{
+    @apply text-gray6 dark:text-gray1;
+  }
+
   .animation{
     @apply opacity-0 transform transition ease-in-out duration-1000 -translate-x-24
   }
@@ -93,6 +97,10 @@ p, article, section {
     @apply bg-gray-200 dark:bg-gray-800 
     border border-blue-400 dark:border-blue-400 rounded-full
     md:mx-12;
+  }
+
+  .form-input{
+    @apply block py-2.5 px-0 w-full text-sm text-gray-900 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600;
   }
 
   .top-navigation {
@@ -293,7 +301,7 @@ p, article, section {
 }
 
  .container {
-    @apply max-w-screen-2xl mx-auto md:px-12;
+    @apply max-w-screen-2xl h-auto mx-auto md:px-12;
  }
 
 

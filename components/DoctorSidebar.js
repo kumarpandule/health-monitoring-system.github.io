@@ -3,9 +3,8 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { FaPlus, FaUser, FaUsers, FaBell, FaNotesMedical, FaHome, FaCog, FaList, FaArrowLeft } from 'react-icons/fa';
 
-export default function AdminSidebar({ children }) {
+export default function DoctorSidebar({ children }) {
   const router = useRouter();
-  const path = router.query;
   const [isOpen, setIsOpen] = useState(false);
   
   function SetOpen(){
@@ -19,24 +18,22 @@ export default function AdminSidebar({ children }) {
 
   const menuItems = [
     {
-      href: '/admin/add',
+      href: '/doctor/add',
       title: 'Add Patient',
       icon: <FaPlus size={28}/>,
     },
     {
-      href: '/admin/patients',
-      addHref: '/admin/patients/' + path.slug,
+      href: '/doctor/patients',
       title: 'Patients',
       icon: <FaUsers size={28}/>,
     },
     {
-      href: '/admin/notifications',
+      href: '/doctor/notifications',
       title: 'Notifications',
       icon: <FaBell size={28}/>,
     },
     {
-      href: '/admin/reports',
-      addHref: '/admin/reports/' + path.slug,
+      href: '/doctor/reports',
       title: 'Reports',
       icon: <FaNotesMedical size={28}/>,
     },
@@ -59,10 +56,10 @@ export default function AdminSidebar({ children }) {
                </li>
 
               <li key={'Dashboard'}>
-              <div className=" mt-4 md:mt-8"></div>
-              <Link href="/admin">
+              <div className="mt-4 md:mt-8"></div>
+              <Link href="/doctor">
                 <div
-                  className={`sidebar-icon group ${router.asPath === "/admin" && "dark:bg-blue-500 bg-blue-500 text-white"}`}
+                  className={`sidebar-icon group ${router.asPath === "/doctor" && "dark:bg-blue-500 bg-blue-500 text-white"}`}
                 >
                   <FaHome size={28} />
                   <span className="sidebar-tooltip group-hover:scale-100">
@@ -76,7 +73,7 @@ export default function AdminSidebar({ children }) {
               </li>
 
               {/* Dynamic Sidebar Icons */}
-              {menuItems.map(({ href, addHref, title, icon }) => (
+              {menuItems.map(({ href, title, icon }) => (
                 <li key={title}>
                 <Link href={href}>
                   <div
@@ -93,38 +90,6 @@ export default function AdminSidebar({ children }) {
                 </li>
               ))}
 
-              {/* Static Sidebar Icons */}
-              <li key={'Divider2'}>
-              <Divider />
-              </li>
-              <li key={'Setting'}>
-              <Link href="/admin/setting">
-                <div
-                  className={`sidebar-icon group ${
-                    router.asPath === "/admin/setting" && "bg-blue-500 dark:bg-blue-500 text-white"
-                  }`}
-                >
-                  <FaCog size={28} />
-                  <span className="sidebar-tooltip group-hover:scale-100">
-                    Setting
-                  </span>
-                </div>
-              </Link>
-              </li>
-              <li key={'Doctors'}>
-              <Link href="/admin/doctors">
-                <div
-                  className={`sidebar-icon group ${
-                    router.asPath === "/admin/doctors" && "bg-blue-500 dark:bg-blue-500 text-white"
-                  }`}
-                >
-                  <FaUsers size={28} />
-                  <span className="sidebar-tooltip group-hover:scale-100">
-                    Doctors
-                  </span>
-                </div>
-              </Link>
-              </li>
             </ul>
           </nav>
 
