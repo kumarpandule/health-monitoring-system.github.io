@@ -39,7 +39,7 @@ export default function ProfileView() {
                     Welcome{" "}
                     <span className=" gradient-text">{currentUser?.name}</span>
                   </h1>
-                  <a href="/admin" className=" mx-auto mb-2 text-center font-display text-base font-normal text-green-500 border-green-400 border-2 rounded-md px-4 py-1 hover:drop-shadow-[0_0_9px_rgba(34,197,94,0.9)]">{userType ? 'Admin' : 'Doctor'}</a>
+                  <Link href="/admin" className=" mx-auto mb-2 text-center font-display text-base font-normal text-green-500 border-green-400 border-2 rounded-md px-4 py-1 hover:drop-shadow-[0_0_9px_rgba(34,197,94,0.9)]">{userType ? 'Admin' : 'Doctor'}</Link>
                 </div>
                 <div className="md:mx-4">
                   <div className=" mx-auto px-4 w-full md:w-1/2 overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-sm md:text-lg text-gray-5 dark:text-gray1">

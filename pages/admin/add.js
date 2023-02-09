@@ -182,7 +182,7 @@ export const FormDropdown = (props) =>{
       <div className="relative">
         <select onChange={onSelect} className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
           {options.map(opt => {
-            return (<option id={opt.value} value={opt.value}>{opt.value}</option>);
+            return (<option key={opt.value} id={opt.value} value={opt.value}>{opt.value}</option>);
           })}
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

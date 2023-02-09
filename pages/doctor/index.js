@@ -9,6 +9,7 @@ import { FaSpinner } from 'react-icons/fa';
 import Link from 'next/link';
 import DoctorSidebar from '@components/DoctorSidebar';
 import { FaFileAlt, FaBell, FaUsers, FaAngleLeft, FaAngleRight} from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Doctor() {
     const {user, currentUser, userType, isUserLoading} = useContext(UserContext);
@@ -349,7 +350,7 @@ export default function Doctor() {
         <div className='container prose dark:prose-invert md:prose-lg lg:prose-xl sm:prose-sm'>
         <header className="text-center pt-20 ">
          <article>
-         <h1>You Don't Have <span className='gradient-text'>Access!</span></h1>
+         <h1>You Don{"'"}t Have <span className='gradient-text'>Access!</span></h1>
           <p>
             Doctor dashboard can only accessed by Legitimate Doctor.
           </p>
