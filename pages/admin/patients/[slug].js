@@ -1,6 +1,8 @@
 import AdminSidebar from '@components/AdminSidebar'
 import AuthCheck from '@components/AuthCheck'
+import PatientCard from '@components/PatientCard'
 import { doc, getFirestore } from 'firebase/firestore'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useContext, useState } from 'react'
@@ -42,7 +44,7 @@ function ViewPatient(){
             <div className="md:mx-4 text-gray1">
               <div className=' flex flex-row w-full h-auto rounded-lg shadow-xs bg-blue-500 overflow-x-auto my-2 p-2 md:p-4'>
                 <div className=' basis-1/2 flex flex-col'>
-                  <h1>Track Patient's Health <span className='text-green-500'>Live</span></h1>
+                  <h1>Track Patient{"'"}s Health <span className='text-green-500'>Live</span></h1>
                 </div>
                 <div className='basis-1/2 flex justify-end pr-10'>
                  <FaAngleRight size={22} />
@@ -59,7 +61,7 @@ function ViewPatient(){
                 <div className='rounded-lg shadow-xs bg-white dark:bg-gray-800 overflow-x-auto my-2 p-2 md:p-4'>
                  <div className='flex flex-col w-full h-auto'>
                  <div className='flex flex-row w-auto '>
-                 <img className="w-1/6 p-1 m-2 rounded-full ring-4 ring-blue-400" src="/hacker.png" alt="Bordered avatar" />
+                 <Image className="w-1/6 p-1 m-2 rounded-full ring-4 ring-blue-400" src="/hacker.png" alt="Bordered avatar" width={512} height={512} />
                  <div className='flex flex-col w-full mx-10 py-4'>
                  <p>Name{" "}:{" "}<span>{profile.firstName+' '+profile.middleName+' '+profile.lastName}</span></p>
                  <div className='flex flex-row justify-between py-2'>

@@ -2,6 +2,7 @@ import AdminSidebar from "@components/AdminSidebar";
 import AuthCheck from "@components/AuthCheck";
 import { db } from "@lib/firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
@@ -95,7 +96,7 @@ export default function Add(props) {
                       <FormDropdown label="Marital Status" options={[{value: 'Select'}, {value: 'Single'}, {value: 'Marrid'}]} onSelect={(e) => setMarital(e.target.value)}/>
                     </div>
                     </div>
-                  <h1 className=" text-blue-400">Patient's Address:</h1>
+                  <h1 className=" text-blue-400">Patient{"'"}s Address:</h1>
                   <Divider />
                   <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full px-3">
@@ -103,7 +104,7 @@ export default function Add(props) {
                         Address
                       </label>
                       <input className="input-field" id="grid-password" type="text" pattern="[A-Za-z0-9'\.\-\s\,]" placeholder="Address" onChange={(e) => setAddress(e.target.value)}/>
-                      <p className="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+                      <p className="text-gray-600 text-xs italic">Make it as long and as crazy as you{"'"}d like</p>
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-6">
@@ -197,7 +198,7 @@ export const FormInstructions = (props) => {
     <div className=" w-full md:w-1/4 md:my-0 my-4 overflow-hidden rounded-lg shadow-xs bg-blue-200">
     <div className="w-full flex flex-col overflow-x-auto p-2 md:p-4">
       <div className=" flex flex-row justify-center mt-12">
-      <img className=" w-2/3" src="/form.svg"></img>
+      <Image alt="Form" className=" w-2/3" src="/form.svg" width="211" height="211"/>
       </div>
       <h2 className="text-center pt-8">INSTRUCTIONS FOR FILLING FORM</h2>
       <article className="mt-14">
@@ -215,7 +216,7 @@ export const FormInstructions = (props) => {
       </div>
       <div className=" w-full flex flex-row pt-4">
       <FaDotCircle size={16} className=" w-24 pt-1 mt-1 mr-2" />
-      <p>Those already allotted a ten-digit alphanumeric PAN shall not apply again as having or using more than one PAN is illegal. However, request for a new PAN card with the same PAN or/and changes or correction in PAN data can be made by filling up the form for 'Request for New PAN Card or/and Changes or Correction in PAN Data'.</p>
+      <p>Those already allotted a ten-digit alphanumeric PAN shall not apply again as having or using more than one PAN is illegal. However, request for a new PAN card with the same PAN or/and changes or correction in PAN data can be made by filling up the form for {"'"}Request for New PAN Card or/and Changes or Correction in PAN Data{"'"}.</p>
       </div>
       </article>
     </div>

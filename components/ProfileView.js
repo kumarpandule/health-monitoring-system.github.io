@@ -5,6 +5,7 @@ import { UserContext } from '@lib/context';
 import Loader from '@components/Loader';
 import Footer from 'pages/footer';
 import UpdateProfile from './UpdateProfile';
+import Image from 'next/image';
 
 export default function ProfileView() {
     const { userType, currentUser, isUserLoading } = useContext(UserContext);
@@ -27,10 +28,12 @@ export default function ProfileView() {
               </header>
               <div>
                 <div className=" flex flex-col justify-center text-center">
-                  <img
+                  <Image
                     className="mx-auto p-1 w-1/4 h-auto md:h-32 md:w-32 rounded-full ring-2 md:ring-4 ring-green-500 "
-                    src={currentUser?.img || "/hacker.png"}
-                    alt="Bordered avatar"
+                    src={currentUser?.img || '/hacker.png'}
+                    alt="Avatar"
+                    width={512}
+                    height={512}
                   />
                   <h1 className=' py-2 mx-auto text-center prose dark:prose-invert text-xl md:text-4xl'>
                     Welcome{" "}
@@ -95,15 +98,15 @@ export default function ProfileView() {
   
                   <h3 className="font-sans font-bold">How To View and Add Patients?</h3>
   
-                  <p>You need to go to your Dashboard apperd on profile. If not, you can access with the <snap>/doctor</snap> command in Discord</p>
+                  <p>You need to go to your Dashboard apperd on profile. If not, you can access with the <span>/doctor</span> command in Discord</p>
   
                   <h3 className="font-sans font-bold">Can I customize my account details?</h3>
   
-                  <p>Yes, you can modify your name and address by clicking the <snap>update account</snap> button above. Once updated, it should be reflected on all profile page.</p>
+                  <p>Yes, you can modify your name and address by clicking the <span>update account</span> button above. Once updated, it should be reflected on all profile page.</p>
   
                   <h3 className="font-sans font-bold">How do I delete my patient?</h3>
   
-                  <p>Click the <snap>patients</snap> button option in your dashboard. Then you can find the patient by using there name or patient ID.</p>
+                  <p>Click the <span>patients</span> button option in your dashboard. Then you can find the patient by using there name or patient ID.</p>
                 </article>
               </div>
             </div>

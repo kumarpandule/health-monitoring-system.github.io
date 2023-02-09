@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Image from "next/image";
 import { useEffect } from "react";
 import Footer from "./footer";
 
@@ -46,11 +47,15 @@ hiddenElements.forEach((el) => observer.observe(el));
               </div>
             </div>
             <div className="basis-1/2">
-              <div className=" flex flex-col h-full justify-center">
-                <img
+              <div className=" flex flex-col w-auto h-full justify-center">
+                <div className="mx-auto my-auto object-center sm:w-4/6 w-3/4 h-full">
+                <Image
+                  alt="Image"
                   src="/dashboard.svg"
-                  className=" mx-auto my-auto object-center sm:w-1/2 w-3/4"
-                ></img>
+                  width={689}
+                  height={589}
+                />
+                </div>
               </div>
             </div>
           </div>

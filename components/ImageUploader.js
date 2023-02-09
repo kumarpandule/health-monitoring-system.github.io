@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { auth, storage, STATE_CHANGED } from '@lib/firebase';
 import Loader from './Loader';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import Image from 'next/image';
 
 // Uploads images to Firebase Storage
 export default function ImageUploader() {
@@ -45,8 +46,11 @@ export default function ImageUploader() {
       {uploading && <h3>{progress}%</h3>}
 
       <div className=" flex flex-col h-auto w-auto items-center justify-center font-medium group">
-      <img className=" p-1 w-24 h-24 bg-gray-200 dark:bg-gray-500 rounded-full ring-4 ring-green-500 dark:ring-white" src={downloadURL || '/hacker.png'} 
-      alt="Bordered avatar" />
+      <Image className=" p-1 w-24 h-24 bg-gray-200 dark:bg-gray-500 rounded-full ring-4 ring-green-500 dark:ring-white" src={downloadURL || '/hacker.png'} 
+      alt="Avatar" 
+      width={512}
+      height={512}
+      />
       {!uploading && (
           <label className=" w-1/2 text-center px-4 cursor-pointer">
             <input type="file" className='opacity-0 cursor-pointer' onChange={uploadFile} accept="image/x-png,image/gif,image/jpeg" />

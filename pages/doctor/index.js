@@ -109,11 +109,13 @@ export default function Doctor() {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"
@@ -141,11 +143,13 @@ export default function Doctor() {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"
@@ -173,11 +177,13 @@ export default function Doctor() {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"
@@ -205,11 +211,13 @@ export default function Doctor() {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"
@@ -237,11 +245,13 @@ export default function Doctor() {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"

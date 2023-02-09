@@ -2,6 +2,7 @@ import React from 'react'
 import AdminSidebar from "@components/AdminSidebar";
 import AuthCheck from "@components/AuthCheck";
 import { FaFileAlt, FaBell, FaUsers, FaAngleLeft, FaAngleRight} from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Dashboard(props) {
   return (
@@ -92,11 +93,13 @@ export default function Dashboard(props) {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                          <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"
@@ -124,11 +127,13 @@ export default function Dashboard(props) {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"
@@ -156,11 +161,13 @@ export default function Dashboard(props) {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"
@@ -188,11 +195,13 @@ export default function Dashboard(props) {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"
@@ -220,11 +229,13 @@ export default function Dashboard(props) {
                     <td className="px-4 py-3">
                       <div className="flex items-center text-sm">
                         <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                          <img
+                        <Image
                             className="object-cover w-full h-full rounded-full"
                             src="/hacker.png"
                             alt=""
                             loading="lazy"
+                            width={512}
+                            height={512}
                           />
                           <div
                             className="absolute inset-0 rounded-full shadow-inner"

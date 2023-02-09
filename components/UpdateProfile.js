@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { FaSpinner } from 'react-icons/fa';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export default function UpdateProfile(){
   const router = useRouter();
@@ -96,8 +97,7 @@ export default function UpdateProfile(){
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:p-4 md:gap-4 gap-2">
     
     <div className=" flex flex-col h-auto w-auto items-center justify-center font-medium group">
-    <img className=" p-1 my-2 w-5/12 bg-gray-200 dark:bg-gray-500 rounded-full ring-4 ring-green-500 dark:ring-white" src={currentUser?.img || image || '/hacker.png'}
-    alt="Bordered avatar" />
+    <Image className=" p-1 my-2 w-5/12 bg-gray-200 dark:bg-gray-500 rounded-full ring-4 ring-green-500 dark:ring-white" src={currentUser?.img || image || '/hacker.png'} alt="Bordered avatar" width={512} height={512}/>
       {uploading && <h3>{progress}%</h3>}
       {downloadURL && (<h2 className=' text-green-500'>Profile picture updated!</h2>)}
       {!uploading && !downloadURL && (
