@@ -49,12 +49,7 @@ hiddenElements.forEach((el) => observer.observe(el));
             <div className="basis-1/2">
               <div className=" flex flex-col w-auto h-full justify-center">
                 <div className="mx-auto my-auto object-center sm:w-4/6 w-3/4 h-full">
-                <Image
-                  alt="Image"
-                  src="/dashboard.svg"
-                  width={689}
-                  height={589}
-                />
+                  <img src="https://firebasestorage.googleapis.com/v0/b/health-monitoring-system-7885c.appspot.com/o/Images%2Fdashboard.svg?alt=media&token=cc76d1e6-55bf-42f0-8c75-07fff53993bf" alt="Image" />
                 </div>
               </div>
             </div>
