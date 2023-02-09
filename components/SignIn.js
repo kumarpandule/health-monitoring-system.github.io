@@ -4,7 +4,6 @@ import toast from 'react-hot-toast';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@lib/firebase';
 import Footer from 'pages/footer';
-import Image from 'next/image';
 
 
 export default function SignIn(props) {
@@ -45,7 +44,7 @@ export default function SignIn(props) {
       <div className='container h-screen flex flex-col justify-between'>
         <div className=" container h-auto flex flex-col justify-center mb-28 mt-8 md:mt-24 items-center md:flex-row bg-gray-100 dark:bg-gray-900">
           <div className="flex w-full basis-1/2 justify-center">
-            <Image className=" md:w-1/2 w-4/5" src="/Authentication.svg" width={512} height={512} alt="Authentication" />
+            <img className=" md:w-1/2 w-4/5" src={'https://firebasestorage.googleapis.com/v0/b/health-monitoring-system-7885c.appspot.com/o/Images%2FAuthentication.svg?alt=media&token=8d65efd8-f611-461b-963d-9da88ebe05eb' || '/Authentication.svg'} alt="Authentication" />
           </div>
           <div className="mx-auto w-24 h-1 md:w-1 md:h-24 my-6 bg-gradient-to-r from-green-600 to-green-400 rounded-full"></div>
           <div className="flex h-1/2 justify-center md:justify-start md:ml-16 basis-1/2">

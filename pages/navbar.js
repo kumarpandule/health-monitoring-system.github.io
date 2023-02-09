@@ -5,7 +5,6 @@ import React, { useContext, useEffect } from 'react';
 import { FaHome, FaExclamationCircle, FaSignOutAlt,FaSun, FaMoon, FaList } from 'react-icons/fa';
 import { UserContext } from '@lib/context';
 import { auth } from '@lib/firebase';
-import Image from 'next/image';
 
 
 export default function Navbar(props) {
@@ -21,7 +20,7 @@ export default function Navbar(props) {
     <nav className="flex top-0 left-0 w-full md:px-24 px-4 py-2 justify-between items-center shadow-lg bg-gray-200 dark:bg-gray-800">
          <div className='flex flex-row items-center w-8 md:w-12 h-6 md:h-9 mr-3'>
         <Link href="./" className="flex items-center">
-          <Image src="/Logo.svg" width={1200} height={850} alt={'Logo'}/>
+          <img src={'https://firebasestorage.googleapis.com/v0/b/health-monitoring-system-7885c.appspot.com/o/Images%2FLogo.svg?alt=media&token=cf99c988-5408-49a1-b371-60263e65bd30' || '/Logo.svg'} alt={'Logo'}/>
         </Link>
         </div>
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
@@ -37,7 +36,7 @@ export default function Navbar(props) {
           <>
               <button className=' top-navigation-icon' onClick={logout} ><FaSignOutAlt size={30}/></button>
               <Link href={`/login`}>
-                <Image src={currentUser?.img || '/hacker.png'}  className=" w-8 h-8 md:w-10 md:h-10 rounded-full ring-2 p-0.5 ring-green-600" alt="Bordered avatar" width={512} height={512}/>
+                <img src={currentUser?.img || '/hacker.png'}  className=" w-8 h-8 md:w-10 md:h-10 rounded-full ring-2 p-0.5 ring-green-600" alt="Bordered avatar" />
               </Link>
           </>
         )}

@@ -2,12 +2,11 @@ import AdminSidebar from '@components/AdminSidebar'
 import AuthCheck from '@components/AuthCheck'
 import PatientCard from '@components/PatientCard'
 import { doc, getFirestore } from 'firebase/firestore'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useContext, useState } from 'react'
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore'
-import { FaSpinner, FaAngleRight } from 'react-icons/fa';
+import { FaSpinner, FaAngleRight, FaUserAlt } from 'react-icons/fa';
 
 function PatientView(props) {
   return (
@@ -61,7 +60,7 @@ function ViewPatient(){
                 <div className='rounded-lg shadow-xs bg-white dark:bg-gray-800 overflow-x-auto my-2 p-2 md:p-4'>
                  <div className='flex flex-col w-full h-auto'>
                  <div className='flex flex-row w-auto '>
-                 <Image className="w-1/6 p-1 m-2 rounded-full ring-4 ring-blue-400" src="/hacker.png" alt="Bordered avatar" width={512} height={512} />
+                 <div className=" m-auto"><FaUserAlt size={80} className=' p-2 m-2 rounded-full ring-4 ring-green-400 text-blue-400' /></div>
                  <div className='flex flex-col w-full mx-10 py-4'>
                  <p>Name{" "}:{" "}<span>{profile.firstName+' '+profile.middleName+' '+profile.lastName}</span></p>
                  <div className='flex flex-row justify-between py-2'>

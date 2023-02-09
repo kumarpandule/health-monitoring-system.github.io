@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Image from "next/image";
 import { useEffect } from "react";
 import Footer from "./footer";
 
