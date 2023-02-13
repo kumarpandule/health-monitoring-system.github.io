@@ -29,7 +29,7 @@ export default function Navbar(props) {
         </div>
 
         <div className="flex flex-row items-center md:order-2">
-          <ThemeIcon />
+          {/* <ThemeIcon /> */}
 
           {/* user is signed-in and has username */}
         {user && (
@@ -53,17 +53,17 @@ export default function Navbar(props) {
   );
 }
 
-const ThemeIcon = () => {
-  const [colorTheme, setTheme] = useDarkMode();
-  return (
-    <div>
-      {colorTheme === "light" ? (
-        <FaSun onClick={() => setTheme("light")} color='orange' size='28' className='top-navigation-icon' />
-      )
-       : 
-      (
-        <FaMoon onClick={() => setTheme("dark")} size='28' className='top-navigation-icon' />
-      )}
-    </div>
-  );
-};
+// const ThemeIcon = () => {
+//   const [colorTheme, setTheme] = useDarkMode();
+//   return (
+//     <div>
+//       {colorTheme === "light" ? (
+//         <FaSun onClick={() => setTheme("light")} color='orange' size='28' className='top-navigation-icon' />
+//       )
+//        : 
+//       (
+//         <FaMoon onClick={() => setTheme("dark")} size='28' className='top-navigation-icon' />
+//       )}
+//     </div>
+//   );
+// };

@@ -31,7 +31,7 @@ export default function Doctors(props) {
         </div>
 
         {/* Doctors List */}
-        <div>
+        <div className="flex">
           <h1 className="prose lg:prose-xl font-bold md:ml-4 py-2 dark:text-gray1">
             All Doctors
           </h1>

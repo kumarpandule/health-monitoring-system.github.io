@@ -5,7 +5,7 @@ import FetchPatients from "@lib/fetchPatients";
 import { useRouter } from "next/router";
 import { FaAngleRight, FaSpinner, FaSearch } from 'react-icons/fa';
 
-export default function Patients() {
+export default function Patients(prose) {
   const router = useRouter();
   const { patients, loading } = FetchPatients();
 
@@ -14,7 +14,7 @@ export default function Patients() {
     <AdminSidebar>
         {/* Patients Route */}
         <div className=" flex flex-row justify-start items-center dark:text-gray3">
-          <p>Patients</p>
+          <a>Patients</a>
           <FaAngleRight size={18} className=' pt-1' />
         </div>
 
