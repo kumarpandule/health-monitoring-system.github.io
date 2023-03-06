@@ -1,5 +1,3 @@
-import AdminSidebar from "@components/AdminSidebar";
-import AuthCheck from "@components/AuthCheck";
 import { db } from "@lib/firebase";
 import { collection, doc, setDoc } from "firebase/firestore";
 import Image from "next/image";
@@ -7,6 +5,10 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaDotCircle, FaSpinner } from 'react-icons/fa';
+import dynamic from "next/dynamic";
+
+const AuthCheck = dynamic(() => import("@components/AuthCheck"), {ssr: false});
+const DoctorSidebar = dynamic(() => import("@components/DoctorSidebar"), {ssr: false});
 
 export default function Add(props) {
   const [aadhar, setAadhar] = useState('')
@@ -51,7 +53,7 @@ export default function Add(props) {
 
   return (
     <AuthCheck>
-      <AdminSidebar>
+      <DoctorSidebar>
         <div>
           <h1 className="prose lg:prose-xl font-bold md:ml-4 py-2 dark:text-gray1">
             Add New Patient
@@ -154,7 +156,7 @@ export default function Add(props) {
             <FormInstructions />
           </div>
         </div>
-      </AdminSidebar>
+      </DoctorSidebar>
     </AuthCheck>
   );
 }

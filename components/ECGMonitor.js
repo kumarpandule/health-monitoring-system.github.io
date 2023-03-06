@@ -51,13 +51,12 @@ function ECGMonitor() {
             return [{ data: newData }];
           });
         }, 1000);
-    
         return () => clearInterval(interval);
       }, []);
     
       return (
-          <div className="w-full h-screen py-2">
-           <div className=' flex flex-row gap-4 mx-2 md:mx-8 text-gray6 dark:text-gray1'>
+          <div className="w-full h-full py-2">
+           <div className=' flex flex-col md:flex-row gap-4 mx-2 md:mx-8 text-gray6 dark:text-gray1'>
             <div className=' basis-3/4 flex flex-col w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800'>
             <div className=' basis-1/12'>
             <h2 className=' basis-1/4 p-2'>Heart Rhythm <span>{"( - )"}</span></h2>

@@ -24,7 +24,7 @@ export default function Patient(props) {
     <AuthCheck>
       <>
         {/* Patients Route */}
-        <Link href={"/admin/patients"}>
+        <Link href={"/doctor/patients"}>
           <div className=" mx-2 md:mx-4 my-2 btn btn-blue ">
             <FaAngleLeft size={24} className=" pt-1" />
             <p className=" py-1">Patients</p>

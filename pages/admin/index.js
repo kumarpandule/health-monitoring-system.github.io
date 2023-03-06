@@ -9,7 +9,7 @@ import Link from 'next/link';
 import Dashboard from "./dashboard";
 
 export default function Admin(props) {
-  const {user, userType, isUserLoading} = useContext(UserContext);
+  const {userType, isUserLoading} = useContext(UserContext);
   const router = useRouter();
   const SignOutNow = () => {
     signOut(auth);
