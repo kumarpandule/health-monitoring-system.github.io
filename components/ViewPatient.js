@@ -28,6 +28,7 @@ export default function ViewPatient({ patientID }) {
                 </div>
               </div>
             </div>
+
             {/* Patient Reports */}
             <div className="mx-2 md:mx-8">
               <h1 className="prose lg:prose-lg font-bold md:ml-4 py-2 dark:text-gray1">
