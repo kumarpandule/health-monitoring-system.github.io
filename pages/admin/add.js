@@ -39,7 +39,7 @@ export default function Add(props) {
     // Create patients document referance
     const docRef = doc(collection(db, "patients"));
     // Write data in to patients document
-    await setDoc(docRef, {aadhar: aadhar, pan: pan, firstName: first, middleName: middle, lastName: last, age: age, gender: gender, maritalStatus: marital, address: address, state: state, city: city, pin: pin, number: number, landline: landline, bloodGroup: blood, height: height, weight: weight}
+    await setDoc(docRef, {role: patient, aadhar: aadhar, pan: pan, firstName: first, middleName: middle, lastName: last, age: age, gender: gender, maritalStatus: marital, address: address, state: state, city: city, pin: pin, number: number, landline: landline, bloodGroup: blood, height: height, weight: weight}
       ).then(() => setLoading(false))
       .catch((error) => toast.error(error.message))
       .finally(() => {

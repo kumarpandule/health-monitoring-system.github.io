@@ -8,13 +8,12 @@ import UpdateProfile from './UpdateProfile';
 import Image from 'next/image';
 
 export default function ProfileView() {
-    const { userType, currentUser, isUserLoading } = useContext(UserContext);
+    const { userRole, currentUser, isUserLoading } = useContext(UserContext);
     const [update, setUpadate] = useState(false);
     console.log(update)
     const Update = () => {
       setUpadate(true)
     }
-
     return (
       <>
         <Loader show={isUserLoading} />
@@ -39,7 +38,7 @@ export default function ProfileView() {
                     Welcome{" "}
                     <span className=" gradient-text">{currentUser?.name}</span>
                   </h1>
-                  <Link href="/admin" className=" mx-auto mb-2 text-center font-display text-base font-normal text-green-500 border-green-400 border-2 rounded-md px-4 py-1 hover:drop-shadow-[0_0_9px_rgba(34,197,94,0.9)]">{userType ? 'Admin' : 'Doctor'}</Link>
+                  <Link href={`/${userRole}`} className=" mx-auto mb-2 text-center font-display text-base font-normal text-green-500 border-green-400 border-2 rounded-md px-4 py-1 hover:drop-shadow-[0_0_9px_rgba(34,197,94,0.9)]">{userRole}</Link>
                 </div>
                 <div className="md:mx-4">
                   <div className=" mx-auto px-4 w-full md:w-1/2 overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800 text-sm md:text-lg text-gray-5 dark:text-gray1">
@@ -56,22 +55,17 @@ export default function ProfileView() {
                         </p>
   
                         <p>Go to Dashboard</p>
-                        {userType ? (
-                          <Link href="/admin" className="btn btn-green btn-glow font-bold text-gray7">
-                            Your Dashboard! Admin
-                          </Link>
-                        ) : (
-                          <Link href="/doctor" className="btn btn-green btn-glow text-gray7">
-                            Your Dashboard! Doctor
-                          </Link>
-                        )}
+                        { userRole === 'patient' ? <></> : null}
+
+                        { userRole === 'admin' ? <Link href="/admin" className="btn btn-green btn-glow font-bold text-gray7">Your Dashboard!</Link> : null }
+                        
+                        { userRole === 'doctor' ? <Link href="/doctor" className="btn btn-green btn-glow text-gray7">Your Dashboard!</Link> : null }
+
+                        { userRole != 'patient' && userRole != 'admin' && userRole != 'doctor' ? (<div>No User Found!</div>) : null}
+
                         <a className="px-4">Or</a>
-                        <button
-                          className="btn btn-red btn-glow text-gray7"
-                          onClick={() => auth.signOut()}
-                        >
-                          Sign Out
-                        </button>
+                        <button className="btn btn-red btn-glow text-gray7" onClick={() => auth.signOut()}>Sign Out</button>
+                        
                       </article>
                     </div>
                   </div>

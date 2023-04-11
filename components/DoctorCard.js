@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaUser, FaAngleRight} from 'react-icons/fa';
 
-export default function DoctorCard({name, speciality, email, uid, userType}) {
+export default function DoctorCard({name, speciality, email, uid, userRole}) {
 
   return (
     <>
@@ -18,7 +18,7 @@ export default function DoctorCard({name, speciality, email, uid, userType}) {
           </div>
         </div>
       </td>
-      <td><p className={` ${userType === 'Admin' ? 'text-green-500' : 'text-blue-500'}`}>{userType}</p></td>
+      <td><p className={` ${userRole === 'Admin' ? 'text-green-500' : 'text-blue-500'}`}>{userRole}</p></td>
       <td className="px-4 py-3 text-sm">{uid}</td>
       <td className="px-4 py-3 text-xs">
         <span className="px-2 py-1 font-semibold leading-tight rounded-full text-gray-600 dark:text-gray-400">

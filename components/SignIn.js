@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@lib/firebase';
 import Footer from 'pages/footer';
+import PatientLoginPage from './PatientLogin';
 
 
 export default function SignIn(props) {
@@ -11,6 +12,7 @@ export default function SignIn(props) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [isAdminLogin, setIsAdminLogin] = useState(false);
 
   function clearValues() {
     setEmail('')
@@ -47,56 +49,62 @@ export default function SignIn(props) {
             <img className=" md:w-1/2 w-4/5" src={'https://firebasestorage.googleapis.com/v0/b/health-monitoring-system-7885c.appspot.com/o/Images%2FAuthentication.svg?alt=media&token=8d65efd8-f611-461b-963d-9da88ebe05eb' || '/Authentication.svg'} alt="Authentication" />
           </div>
           <div className="mx-auto w-24 h-1 md:w-1 md:h-24 my-6 bg-gradient-to-r from-green-600 to-green-400 rounded-full"></div>
-          <div className="flex h-1/2 justify-center md:justify-start md:ml-16 basis-1/2">
-            <div className="flex w-screen pt-2 px-4 md:py-4 md:w-3/4 h-96 flex-col justify-between items-center">
-              <h1 className=" font-extrabold text-gray6 dark:text-gray2 select-none text-2xl sm:text-4xl">
-                Login
-              </h1>
-
-              {/* Error Messege */}
-              {error && (
-                <div className=" text-sm w-full border-red-500 border text-center border-solid text-red-500 py-2">
-                  {error}
-                </div>
-              )}
-              <input
-                type="text"
-                value={email}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter")
-                    submitHandler()
-                }}
-                onChange={(e) => {
-                  onChange()
-                  setEmail(e.target.value)
-                }}
-                placeholder="Email Address"
-                className="input-field"
-              />
-              <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter")
-                    submitHandler()
-                }}
-                type="password"
-                placeholder="Password"
-                className="input-field"
-              />
-              <button
-                onClick={submitHandler}
-                className="w-full flex justify-center py-2 duration-300 relative after:absolute after:top-0 after:right-full bg-green-500 after:z-10 after:w-full after:h-full overflow-hidden hover:after:translate-x-full after:duration-300 hover:text-slate-900">
-                {(isLoading) && (
-                  <FaSpinner className=' animate-spin text-white' size={22} />
-
-                )}
-                {(!isLoading) && (
-                  <span className="text-gray1 cursor-pointer">Login</span>
-                )}
-              </button>
-              <div className="py-6"></div>
-            </div>
+          <div className="flex flex-col w-full  h-1/2 justify-center items-center md:justify-start md:items-start md:ml-16 basis-1/2">
+          <div className=' w-3/4'>
+           { isAdminLogin ? (
+                        <div className="flex w-full pt-2 px-4 md:py-4 h-96 flex-col justify-between items-center">
+                        <h1 className=" font-extrabold text-gray6 dark:text-gray2 select-none text-2xl sm:text-4xl">
+                          Doctor Login
+                        </h1>
+                        {/* Error Messege */}
+                        {error && (
+                          <div className=" text-sm w-full border-red-500 border text-center border-solid text-red-500 py-2">
+                            {error}
+                          </div>
+                        )}
+                        <input
+                          type="text"
+                          value={email}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter")
+                              submitHandler()
+                          }}
+                          onChange={(e) => {
+                            onChange()
+                            setEmail(e.target.value)
+                          }}
+                          placeholder="Email Address"
+                          className="input-field"
+                        />
+                        <input
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter")
+                              submitHandler()
+                          }}
+                          type="password"
+                          placeholder="Password"
+                          className="input-field"
+                        />
+                        <button
+                          onClick={submitHandler}
+                          className="w-full flex justify-center py-2 duration-300 relative after:absolute after:top-0 after:right-full bg-green-500 hover:bg-green-700 after:z-10 after:w-full after:h-full overflow-hidden hover:after:translate-x-full after:duration-300 hover:text-slate-900">
+                          {(isLoading) && (
+                            <FaSpinner className=' animate-spin text-white' size={22} />
+          
+                          )}
+                          {(!isLoading) && (
+                            <span className="text-gray1 cursor-pointer">Login</span>
+                          )}
+                        </button>
+                        <div className="py-6"></div>
+                      </div>)
+                      : 
+                      <PatientLoginPage />
+                      }
+            <p className="text-gray-500 text-center">Are you a <button className=" text-blue-500" onClick={() => setIsAdminLogin(!isAdminLogin)}>{!isAdminLogin ? 'Doctor' : 'Patient'}</button></p>
+          </div>
           </div>
         </div>
       </div>
