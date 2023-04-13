@@ -1,8 +1,8 @@
-import AuthCheck from "@components/AuthCheck";
-import AdminSidebar from "@components/AdminSidebar";
+import AuthCheck from "@components/Auth/AuthCheck";
+import AdminSidebar from "@components/Sidebar/AdminSidebar";
 import FetchDoctors from "@lib/fetchDoctors";
 import AddDoctor from "@lib/addDoctor";
-import DoctorCard from "@components/DoctorCard";
+import DoctorCard from "@components/DoctorComponents/DoctorCard";
 import { FaSpinner, FaAngleRight } from 'react-icons/fa';
 import { useRouter } from "next/router";
 

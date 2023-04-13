@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { FaAngleLeft,FaAngleRight } from "react-icons/fa";
 import dynamic from "next/dynamic";
 
-const AuthCheck = dynamic(() => import("@components/AuthCheck"), {ssr: false});
-const ViewLivePatient = dynamic(() => import("@components/ViewLivePatient"), {ssr: false});
-const ViewPatient = dynamic(() => import("@components/ViewPatient"), {ssr: false});
+const AuthCheck = dynamic(() => import("@components/Auth/AuthCheck"), {ssr: false});
+const ViewLivePatient = dynamic(() => import("@components/LiveMonitor/ViewLivePatient"), {ssr: false});
+const ViewPatient = dynamic(() => import("@components/PatientComponents/ViewPatient"), {ssr: false});
 
 
 export default function Patient(props) {

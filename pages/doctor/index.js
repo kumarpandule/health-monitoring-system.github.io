@@ -4,9 +4,9 @@ import { useContext } from "react";
 import { FaSpinner } from 'react-icons/fa';
 import Dashboard from './dashboard';
 import dynamic from 'next/dynamic';
-import IndexAuthCheck from '@components/IndexAuthCheck';
+import IndexAuthCheck from '@components/Auth/IndexAuthCheck';
 
-const AuthCheck = dynamic(() => import("@components/AuthCheck"), {ssr: false});
+const AuthCheck = dynamic(() => import("@components/Auth/AuthCheck"), {ssr: false});
 
 export default function Doctor() {
   const {userRole, isUserLoading} = useContext(UserContext);

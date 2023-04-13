@@ -1,7 +1,7 @@
-import AdminSidebar from "@components/AdminSidebar";
-import AuthCheck from "@components/AuthCheck";
+import AdminSidebar from "@components/Sidebar/AdminSidebar";
+import AuthCheck from "@components/Auth/AuthCheck";
 import { db } from "@lib/firebase";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -27,19 +27,38 @@ export default function Add(props) {
   const [height, setHeight] = useState('')
   const [weight, setWeight] = useState('')
   const [loading, setLoading] = useState(false)
-  const [docRef, setDocRef] = useState(null)
   const router = useRouter();
 
   const addPatient = async (e) => {
     e.preventDefault();
+    
+    //   Check if patient number already exists
+    const docRef = doc(db, "patients", `+91${number}`);
+    const docSnap = await getDoc(docRef);
+
+    //   Check if number is already a field in any document
+    const collectionRef = collection(db, 'patients');
+    const q = query(collectionRef, where('number', '==', `+91${number}`));
+    const docField = await getDocs(q);
+
+    //   Check if Aadhar number already exists
+    const ref = collection(db, 'patients');
+    const aadharQuery = query(ref, where('aadhar', '==', aadhar));
+    const aadharField = await getDocs(aadharQuery);
+
+
     if(!aadhar || !first || !middle || !last || !city || !address ){
       toast.error('All (*) fields are required!')
+    }else if( docSnap.exists() || docField.size > 0 ){
+      toast.error('Patient phone number already exists!')
+    }else if(aadharField.size > 0){
+      toast.error('Aadhar number already exists!')
     }else{
     setLoading(true)
     // Create patients document referance
-    const docRef = doc(collection(db, "patients"));
+    const docRef = doc(db, "patients", `+91${number}`);
     // Write data in to patients document
-    await setDoc(docRef, {role: patient, aadhar: aadhar, pan: pan, firstName: first, middleName: middle, lastName: last, age: age, gender: gender, maritalStatus: marital, address: address, state: state, city: city, pin: pin, number: number, landline: landline, bloodGroup: blood, height: height, weight: weight}
+    await setDoc(docRef, {role: 'patient', aadhar: aadhar, pan: pan, name: first+middle+last, firstName: first, middleName: middle, lastName: last, age: age, gender: gender, maritalStatus: marital, address: address, state: state, city: city, pin: pin, number: `+91${number}`, landline: landline, bloodGroup: blood, height: height, weight: weight}
       ).then(() => setLoading(false))
       .catch((error) => toast.error(error.message))
       .finally(() => {

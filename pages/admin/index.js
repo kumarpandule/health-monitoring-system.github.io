@@ -1,9 +1,9 @@
-import AuthCheck from "@components/AuthCheck";
+import AuthCheck from "@components/Auth/AuthCheck";
 import { UserContext } from "@lib/context";
 import { useContext } from "react";
 import { FaSpinner } from 'react-icons/fa';
 import Dashboard from "./dashboard";
-import IndexAuthCheck from "@components/IndexAuthCheck";
+import IndexAuthCheck from "@components/Auth/IndexAuthCheck";
 
 export default function Admin(props) {
   const {userRole, isUserLoading} = useContext(UserContext);

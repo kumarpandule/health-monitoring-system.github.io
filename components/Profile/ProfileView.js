@@ -36,7 +36,7 @@ export default function ProfileView() {
                   />
                   <h1 className=' py-2 mx-auto text-center prose dark:prose-invert text-xl md:text-4xl'>
                     Welcome{" "}
-                    <span className=" gradient-text">{currentUser?.name}</span>
+                    <span className=" gradient-text">{currentUser?.name || currentUser?.fir}</span>
                   </h1>
                   <Link href={`/${userRole}`} className=" mx-auto mb-2 text-center font-display text-base font-normal text-green-500 border-green-400 border-2 rounded-md px-4 py-1 hover:drop-shadow-[0_0_9px_rgba(34,197,94,0.9)]">{userRole}</Link>
                 </div>
@@ -51,11 +51,11 @@ export default function ProfileView() {
                           Account Name: <span>{currentUser?.name}</span>
                         </p>
                         <p>
-                          Account Email: <span>{currentUser?.email}</span>
+                          Account Email: <span>{currentUser !== '' ? 'Email Not Mentioned!' : currentUser?.email}</span>
                         </p>
   
                         <p>Go to Dashboard</p>
-                        { userRole === 'patient' ? <></> : null}
+                        { userRole === 'patient' ? <Link href="/patient" className="btn btn-green btn-glow font-bold text-gray7">Your Dashboard!</Link> : null}
 
                         { userRole === 'admin' ? <Link href="/admin" className="btn btn-green btn-glow font-bold text-gray7">Your Dashboard!</Link> : null }
                         

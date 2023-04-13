@@ -1,5 +1,5 @@
-import AuthCheck from '@components/AuthCheck'
-import ProfileView from '@components/ProfileView'
+import AuthCheck from '@components/Auth/AuthCheck'
+import ProfileView from '@components/Profile/ProfileView'
 import React from 'react'
 
 export default function Profile() {

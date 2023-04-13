@@ -1,9 +1,9 @@
-import PatientCard from "@components/PatientCard";
+import PatientCard from "@components/PatientComponents/PatientCard";
 import { doc, getFirestore } from "firebase/firestore";
 import React, { useState } from "react";
 import { useDocumentDataOnce } from "react-firebase-hooks/firestore";
 import {FaSpinner} from "react-icons/fa";
-import { PatientDetails, PatientMedicalHistory, PatientOtherHistory } from "@components/PatientDetails";
+import { PatientDetails, PatientMedicalHistory, PatientOtherHistory } from "@components/PatientComponents/PatientDetails";
 
 export default function ViewPatient({ patientID }) {
     const loading = useState();

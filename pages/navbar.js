@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import useDarkMode from '@lib/useDarkMode';
 import React, { useContext, useEffect } from 'react';
 import { FaHome, FaExclamationCircle, FaSignOutAlt,FaSun, FaMoon, FaList } from 'react-icons/fa';
 import { UserContext } from '@lib/context';

@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
 import React from "react";
 
-const AuthCheck = dynamic(() => import("@components/AuthCheck"), {ssr: false});
-const DoctorSidebar = dynamic(() => import("@components/DoctorSidebar"), {ssr: false});
+const AuthCheck = dynamic(() => import("@components/Auth/AuthCheck"), {ssr: false});
+const DoctorSidebar = dynamic(() => import("@components/Sidebar/DoctorSidebar"), {ssr: false});
 
 export default function Reports(Component , pageProps) {
   return (

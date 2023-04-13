@@ -1,6 +1,6 @@
-import AdminSidebar from "@components/AdminSidebar";
-import AuthCheck from "@components/AuthCheck";
-import PatientCard from "@components/PatientCard";
+import AdminSidebar from "@components/Sidebar/AdminSidebar";
+import AuthCheck from "@components/Auth/AuthCheck";
+import PatientCard from "@components/PatientComponents/PatientCard";
 import FetchPatients from "@lib/fetchPatients";
 import { useRouter } from "next/router";
 import { FaAngleRight, FaSpinner, FaSearch } from 'react-icons/fa';
@@ -70,6 +70,16 @@ export default function Patients(prose) {
                     </tbody>
                   )}  
 
+                  {(patients.length === 0) && (
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td><h1 className="text-gray-500 py-4 text-center">You dont have patients yet!</h1></td>
+                      </tr>
+                    </tbody>
+                  )}
+
                     {(!loading) && (
                     <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                       {patients.map(patient => (
@@ -78,7 +88,7 @@ export default function Patients(prose) {
                         </tr>
                         ))}
                     </tbody>
-                   )}
+)}
                 </table>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react'
-import AdminSidebar from "@components/AdminSidebar";
-import AuthCheck from "@components/AuthCheck";
+import AdminSidebar from "@components/Sidebar/AdminSidebar";
+import AuthCheck from "@components/Auth/AuthCheck";
 import { FaFileAlt, FaBell, FaUsers, FaAngleLeft, FaAngleRight} from 'react-icons/fa';
 import Image from 'next/image';
 

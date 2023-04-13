@@ -2,7 +2,7 @@ import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 import dynamic from "next/dynamic";
 
-const ECGMonitor = dynamic(() => import("@components/ECGMonitor"), {ssr: false})
+const ECGMonitor = dynamic(() => import("@components/LiveMonitor/ECGMonitor"), {ssr: false})
 
 export default function ViewLivePatient({pationtID}){
 

@@ -1,11 +1,11 @@
-import PatientCard from "@components/PatientCard";
+import PatientCard from "@components/PatientComponents/PatientCard";
 import FetchPatients from "@lib/fetchPatients";
 import { useRouter } from "next/router";
 import { FaAngleRight, FaSpinner, FaSearch } from 'react-icons/fa';
 import dynamic from 'next/dynamic';
 
-const AuthCheck = dynamic(() => import("@components/AuthCheck"), {ssr: false});
-const DoctorSidebar = dynamic(() => import("@components/DoctorSidebar"), {ssr: false});
+const AuthCheck = dynamic(() => import("@components/Auth/AuthCheck"), {ssr: false});
+const DoctorSidebar = dynamic(() => import("@components/Sidebar/DoctorSidebar"), {ssr: false});
 
 export default function Patients(prose) {
   const router = useRouter();

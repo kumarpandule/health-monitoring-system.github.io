@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@lib/firebase';
 import Footer from 'pages/footer';
-import PatientLoginPage from './PatientLogin';
+import PatientLoginPage from '@components/Auth/PatientLogin';
 
 
 export default function SignIn(props) {
@@ -56,6 +56,7 @@ export default function SignIn(props) {
                         <h1 className=" font-extrabold text-gray6 dark:text-gray2 select-none text-2xl sm:text-4xl">
                           Doctor Login
                         </h1>
+                        <p className='text-center text-gray-500'>Doctor should be login with there registred Email ID & Password.</p>
                         {/* Error Messege */}
                         {error && (
                           <div className=" text-sm w-full border-red-500 border text-center border-solid text-red-500 py-2">
@@ -98,7 +99,6 @@ export default function SignIn(props) {
                             <span className="text-gray1 cursor-pointer">Login</span>
                           )}
                         </button>
-                        <div className="py-6"></div>
                       </div>)
                       : 
                       <PatientLoginPage />

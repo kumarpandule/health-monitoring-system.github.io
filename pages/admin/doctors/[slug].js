@@ -1,5 +1,5 @@
-import AdminSidebar from '@components/AdminSidebar';
-import AuthCheck from '@components/AuthCheck'
+import AdminSidebar from '@components/Sidebar/AdminSidebar';
+import AuthCheck from '@components/Auth/AuthCheck'
 import { doc, getFirestore } from 'firebase/firestore';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

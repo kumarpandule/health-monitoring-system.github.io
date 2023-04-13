@@ -1,6 +1,6 @@
 import { auth, db } from '@lib/firebase';
 import { PhoneAuthProvider, RecaptchaVerifier, signInWithCredential } from 'firebase/auth';
-import { collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, query, updateDoc, where } from 'firebase/firestore';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaSpinner } from 'react-icons/fa';
@@ -11,7 +11,8 @@ export default function PatientLoginPage() {
   const [verificationId, setVerificationId] = useState('');
   const [showOtpInput, setShowOtpInput] = useState(false);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [userCredential, setUserCredential] = useState(null);
 
   const signInWithPhone = async (e) => {
     e.preventDefault()
@@ -58,18 +59,31 @@ export default function PatientLoginPage() {
     }
   };
 
-  const verify = async () => {
-    setIsLoading(true);
-    const authCredential = PhoneAuthProvider.credential(verificationId, code);
-    const userCredential = await signInWithCredential(auth, authCredential);
-    console.log('verify: ', userCredential);
+  const verify = async (e) => {
+    e.preventDefault();
+
+    if (!/^\d{6}$/.test(code) || code.length !== 6) {
+      toast.error('Please enter a valid OTP');
+      setError('Please enter a valid OTP');
+    } else {
+      setIsLoading(true);
+      const authCredential = PhoneAuthProvider.credential(verificationId, code);
+      const userCredential = await signInWithCredential(auth, authCredential);
+
+      console.log(userCredential);
+      //   Update user UID in document
+      const userUID = userCredential.user.uid;
+      const ref = doc(db, 'patients', `+91${phoneNumber}`);
+      await updateDoc(ref, { uid: userUID });
+    }
   };
 
   return (
     <form className="flex w-full pt-2 px-4 md:py-4 h-96 flex-col justify-between">
-      <h1 className=" text-center pb-4 font-extrabold text-gray6 dark:text-gray2 select-none text-2xl sm:text-4xl">
+      <h1 className=" text-center font-extrabold text-gray6 dark:text-gray2 select-none text-2xl sm:text-4xl">
       Patient Login
       </h1>
+      <p>Patient should be login using there registred mobile number.</p>
         {/* Error Messege */}
         {error && (
           <div className=" my-2 text-sm w-full border-red-500 border text-center border-solid text-red-500 py-2">

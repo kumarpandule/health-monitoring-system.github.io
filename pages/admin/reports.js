@@ -1,5 +1,5 @@
-import AdminSidebar from "@components/AdminSidebar";
-import AuthCheck from "@components/AuthCheck";
+import AdminSidebar from "@components/Sidebar/AdminSidebar";
+import AuthCheck from "@components/Auth/AuthCheck";
 
 export default function Reports(Component , pageProps) {
   return (

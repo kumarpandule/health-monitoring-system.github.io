@@ -7,8 +7,8 @@ import { toast } from "react-hot-toast";
 import { FaDotCircle, FaSpinner } from 'react-icons/fa';
 import dynamic from "next/dynamic";
 
-const AuthCheck = dynamic(() => import("@components/AuthCheck"), {ssr: false});
-const DoctorSidebar = dynamic(() => import("@components/DoctorSidebar"), {ssr: false});
+const AuthCheck = dynamic(() => import("@components/Auth/AuthCheck"), {ssr: false});
+const DoctorSidebar = dynamic(() => import("@components/Sidebar/DoctorSidebar"), {ssr: false});
 
 export default function Add(props) {
   const [aadhar, setAadhar] = useState('')
