@@ -6,6 +6,11 @@
 @tailwind base;
 @tailwind components;
 
+.chart-container {
+  width: 50%;
+  height: 50%;
+}
+
 *{
   font-family: 'cubano', sans-serif;
   font-weight: normal;
@@ -63,6 +68,7 @@ p, article, section {
 }
 
 @layer components {
+
 
   label{
     @apply text-gray6 dark:text-gray1;

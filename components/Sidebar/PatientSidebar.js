@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { FaPlus, FaUser, FaUsers, FaBell, FaNotesMedical, FaHome, FaCog, FaList, FaArrowLeft } from 'react-icons/fa';
+import { FaFileAlt, FaBell, FaNotesMedical, FaHome, FaCog, FaList, FaArrowLeft } from 'react-icons/fa';
 
-export default function DoctorSidebar({ children }) {
+export default function PatientSidebar({ children }) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   
@@ -18,24 +18,14 @@ export default function DoctorSidebar({ children }) {
 
   const menuItems = [
     {
-      href: '/doctor/add',
-      title: 'Add Patient',
-      icon: <FaPlus size={28}/>,
-    },
+        href: '/patient/notifications',
+        title: 'Notifications',
+        icon: <FaBell size={28}/>,
+      },
     {
-      href: '/doctor/patients',
-      title: 'Patients',
-      icon: <FaUsers size={28}/>,
-    },
-    {
-      href: '/doctor/notifications',
-      title: 'Notifications',
-      icon: <FaBell size={28}/>,
-    },
-    {
-      href: '/doctor/reports',
-      title: 'Reports',
-      icon: <FaNotesMedical size={28}/>,
+      href: '/patient/reports',
+      title: 'Your Repots',
+      icon: <FaFileAlt size={28}/>,
     },
   ];
 
@@ -57,9 +47,9 @@ export default function DoctorSidebar({ children }) {
 
               <li key={'Dashboard'}>
               <div className="mt-4 md:mt-8"></div>
-              <Link href="/doctor">
+              <Link href="/patient">
                 <div
-                  className={`sidebar-icon group ${router.asPath === "/doctor" && "dark:bg-blue-500 bg-blue-500 text-white"}`}
+                  className={`sidebar-icon group ${router.asPath === "/patient" && "dark:bg-blue-500 bg-blue-500 text-white"}`}
                 >
                   <FaHome size={28} />
                   <span className="sidebar-tooltip group-hover:scale-100">
@@ -89,6 +79,7 @@ export default function DoctorSidebar({ children }) {
                 </Link>
                 </li>
               ))}
+
             </ul>
           </nav>
 

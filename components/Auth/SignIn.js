@@ -54,7 +54,7 @@ export default function SignIn(props) {
            { isAdminLogin ? (
                         <div className="flex w-full pt-2 px-4 md:py-4 h-96 flex-col justify-between items-center">
                         <h1 className=" font-extrabold text-gray6 dark:text-gray2 select-none text-2xl sm:text-4xl">
-                          Doctor Login
+                          Doctor / Admin Login
                         </h1>
                         <p className='text-center text-gray-500'>Doctor should be login with there registred Email ID & Password.</p>
                         {/* Error Messege */}
@@ -103,10 +103,18 @@ export default function SignIn(props) {
                       : 
                       <PatientLoginPage />
                       }
-            <p className="text-gray-500 text-center">Are you a <button className=" text-blue-500" onClick={() => setIsAdminLogin(!isAdminLogin)}>{!isAdminLogin ? 'Doctor' : 'Patient'}</button></p>
+            <p className="text-gray-500 text-center">Are you a <button className=" text-blue-500" onClick={() => setIsAdminLogin(!isAdminLogin)}>{!isAdminLogin ? 'Doctor / Admin!' : 'Patient!'}</button></p>
           </div>
           </div>
         </div>
+        <div className=' mx-auto prose dark:prose-invert prose-base md:prose-lg'>
+        <h2 className="text-center md:text-left">How patient can login? </h2>
+      <p>Patient should enter their mobile number to login With OTP authorization.</p>
+      <h2 className="text-center md:text-left">Please authorize your number first!</h2>
+      <p>This message means you dont have account yet in this system! Please visit your associated doctor and get your account set up. Get your mobile number linked to the account.</p>
+      <h2 className="text-center md:text-left">How Doctor or Admin can login? </h2>
+      <p>Doctor & Admin can login through their valid email ID And Password associated with their account.</p>
+      </div>
       </div>
       <Footer />
     </main>

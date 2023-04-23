@@ -7,6 +7,7 @@ const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 export default function ECGMonitor() {
   const [data, setData] = useState([]);
+  const [ecgData, setECGData] = useState([{ x: Date.now(), y: 1 }]);
 
   useEffect(() => {
     const docRef = doc(db, "devices", "0001");
@@ -35,11 +36,10 @@ export default function ECGMonitor() {
     return () => unsubscribe();
   }, []);
 
-  const [ecgData, setECGData] = useState([]);
   const [options, setOptions] = useState({
     chart: {
       id: 'realtime',
-      height: 350,
+      height: 450,
       type: 'line',
       animations: {
         enabled: true,
@@ -53,15 +53,17 @@ export default function ECGMonitor() {
       },
     },
     xaxis: {
-      type: 'numeric',
-      range: 1400,
+      type: 'datetime',
+      range: 60 * 60,
       labels: {
-        show: false,
+        show: true,
       },
+      categories: [''],
     },
     yaxis: {
       max: 1000,
-      min: -500,
+      min: -1600,
+      tickAmount: 25,
     },
     stroke: {
       show: true,
@@ -79,16 +81,72 @@ export default function ECGMonitor() {
   useEffect(() => {
     const interval = setInterval(() => {
       const newECGData = [...ecgData];
-      newECGData.push({
-        x: Date.now(),
-        y: data.Pulse,
-      });
+      const pulse = Math.floor(Math.random() * 1000);
+  
+      if (pulse >= -300 && pulse <= 300) {
+        // Pulse input is within range, set y value to a fixed value
+        newECGData.push({
+          x: Date.now(),
+          y: 1,
+        });
+      } else if (pulse > 600) {
+        // Pulse input is greater than 600, create an array of ECG data points
+        const pulseArray = [
+          { y: 64 },
+          { y: 168},
+          { y: 272 },
+          { y: 300 },
+          { y: 400 },
+          { y: 500 },
+          { y: 600 },
+          { y: 700 },
+          { y: 896 },
+          { y: 792 },
+          { y: 688 },
+          { y: 584 },
+          { y: 480 },
+          { y: 376 },
+          { y: 272 },
+          { y: 168 },
+          { y: 64 },
+          { y: -40 },
+          { y: -144 },
+          { y: -352},
+          { y: -664 },
+          { y: -768 },
+          { y: -872 },
+          { y: -1200 },
+          { y: -1100 },
+          { y: -1000 },
+          { y: -900 },
+          { y: -800 },
+          { y: -900 },
+          { y: -1000 },
+          { y: -1184 },
+          { y: -1288 },
+          { y: -872 },
+          { y: -768 },
+          { y: -664 },
+          { y: -352},
+          { y: -144 },
+          { y: -40 }
+        ];
+        const ecgArray = pulseArray.map((digit) => ({
+          x: Date.now(),
+          y: digit.y,
+        }));
+        newECGData.push(...ecgArray);
+      } else {
+        // Pulse input is outside the specified range, do not add a new ECG data point
+        return;
+      }
+  
       if (newECGData.length > 1000) {
         newECGData.shift();
       }
       setECGData(newECGData);
     }, 100);
-
+  
     return () => clearInterval(interval);
   }, [ecgData]);
 
@@ -101,7 +159,7 @@ export default function ECGMonitor() {
             <h2 className=' basis-1/4 p-2'>Heart Rhythm <span>{"( - )"}</span></h2>
             </div>
             <div className=' basis-11/12'>
-            <ApexCharts options={options} series={[{ data: ecgData }]} type="line" height={350} />
+            <ApexCharts options={options} series={[{ data: ecgData }]} type="line" height={450} />
             </div>
             </div>
             <div className=' basis-1/4 flex flex-col gap-4'>

@@ -1,7 +1,14 @@
+import IndexAuthCheck from '@components/Auth/IndexAuthCheck';
+import { UserContext } from '@lib/context';
+import { useContext, useEffect } from 'react'
+import Dashboard from './dashboard';
+
 export default function Patient(){
-    return(
-        <div>
-        <h1>Patient</h1>
-        </div>
+  const { userRole } = useContext(UserContext);
+    return (
+      <>
+      {userRole !== 'patient' ? IndexAuthCheck() : <Dashboard />}
+      </>
     )
 }
+
