@@ -164,12 +164,12 @@ export default function ECGMonitor() {
             </div>
             <div className=' basis-1/4 flex flex-col gap-4'>
             <div className=' basis-1/2 p-2 flex flex-col w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800'>
-            <h2 className=' basis-1/4'>Analog Value <span>{"( ECG )"}</span></h2>
-            <h1 className=' basis-3/4 text-6xl text-center py-4'>{data.Pulse}</h1>
+            <h2 className=' basis-1/4'>BPM <span>{"( BPM )"}</span></h2>
+            <h1 className=' basis-3/4 text-6xl text-center py-4'>{data.beatsPerMinute}</h1>
             </div>
             <div className=' basis-1/2 p-2 flex flex-col w-full overflow-hidden rounded-lg shadow-xs bg-white dark:bg-gray-800'>
-            <h2 className='basis-1/4'>Temprature <span>{"( C )"}</span></h2>
-            <h1 className=' basis-3/4 text-6xl text-center py-4'>{data.Temprature}</h1>
+            <h2 className='basis-1/4'>SPO2 <span>{"( % )"}</span></h2>
+            <h1 className=' basis-3/4 text-6xl text-center py-4'>{data.spo2}</h1>
             </div>
             </div>
            </div>
