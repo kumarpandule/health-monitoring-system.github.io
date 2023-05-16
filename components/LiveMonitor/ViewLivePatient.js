@@ -17,16 +17,14 @@ export default function ViewLivePatient({pationtID}){
           </div>
           <div className=" basis-1/6 flex flex-col justify-center items-start">
           <p>Name: <span>kumar Pandule</span></p>
-         <p>Status: <span>Norml</span></p>
+          <p>Status: <span>Norml</span></p>
           </div>
           <div className=" basis-1/6 flex flex-col justify-center items-start">
-          <p>Disease: <span>-</span></p>
-         <p>Other: <span>-</span></p>
           </div>
           <div className=" basis-1/6"></div>
           <div className=" basis-1/6"></div>
           <div className=" basis-1/6">
-          <button onClick={null}>
+          {/* <button onClick={null}>
                 <div className=" text-gray1 flex flex-row justify-between w-full h-auto rounded-lg shadow-xs bg-blue-500 overflow-x-auto my-2 p-2 md:p-4">
                   <h1>
                   Generate Patient{"'"}s {" "}
@@ -34,7 +32,7 @@ export default function ViewLivePatient({pationtID}){
                   </h1>
                   <FaAngleRight size={22} />
                 </div>
-              </button>
+              </button> */}
           </div>
         </div>
         </div>
