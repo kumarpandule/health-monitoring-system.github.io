@@ -189,7 +189,7 @@ export default function ECGMonitor() {
             </>
             :
             <div className="flex h-full items-center justify-cente">
-            <h2 className=' mx-auto basis-3/4 text-xl items-center text-center text-red-400 py-4'>Please ware health Kit!</h2>
+            <h2 className=' mx-auto basis-3/4 text-xl items-center text-center text-red-400 py-4'>Please wear health Kit!</h2>
             </div>
             }
             </div>
@@ -200,7 +200,7 @@ export default function ECGMonitor() {
             </>
             :
             <div className="flex h-full items-center justify-center">
-            <h2 className=' basis-3/4 text-xl items-center text-center text-red-400 py-4'>Please ware health Kit!</h2>
+            <h2 className=' basis-3/4 text-xl items-center text-center text-red-400 py-4'>Please wear health Kit!</h2>
             </div>
             }
             </div>
@@ -211,7 +211,7 @@ export default function ECGMonitor() {
             </>
             :
             <div className="flex h-full items-center justify-center">
-            <h2 className=' basis-3/4 text-xl items-center text-center text-red-400 py-4'>Please ware health Kit!</h2>
+            <h2 className=' basis-3/4 text-xl items-center text-center text-red-400 py-4'>Please wear health Kit!</h2>
             </div>
             }
             </div>
