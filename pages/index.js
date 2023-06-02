@@ -104,10 +104,10 @@ hiddenElements.forEach((el) => observer.observe(el));
               Our Kit
             </h1>
             <p className=" animation py-2 text-lg md:text-2xl text-gray5 dark:text-gray3 text-center w-3/4 mx-auto">
-            --------------------------------------------------------
-              <span className="text-blue-600 font-display animate-pulse"> -------- </span>------------------------------</p>
+            This system is established with a health monitoring Kit which enables the doctors to measure
+              <span className="text-blue-600 font-display animate-pulse"> body temperature, heart rate and pulse rate </span>in a single device.</p>
             <p className=" animation py-2 text-lg md:text-2xl text-gray5 dark:text-gray3 w-3/4 mx-auto">
-            -----------------------------------<span className="text-blue-500 font-display animate-pulse"> -------------------------- </span>----------------------------------------</p>
+            The parameter measured using the kit is shown to appropriate doctor through the website. The<span className="text-green-600 font-display animate-pulse"> doctor as well as patient </span>can monitor the information by visiting to the website.</p>
             <a className="animate-bounce no-underline block mt-12 md:text-xl text-base" href="">
               How you get monitored? 🧐
             </a>
